@@ -69,7 +69,15 @@ namespace GeoSenaWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string str = "1.12.1";
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery.ui.combined", new ScriptResourceDefinition
+            {
+                Path = "~/Scripts/jquery-ui-" + str + ".min.js",
+                DebugPath = "~/Scripts/jquery-ui-" + str + ".js",
+                CdnPath = "http://ajax.aspnetcdn.com/ajax/jquery.ui/" + str + "/jquery-ui.min.js",
+                CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jquery.ui/" + str + "/jquery-ui.js",
+                CdnSupportsSecureConnection = true
+            });
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
