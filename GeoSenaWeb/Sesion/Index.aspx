@@ -11,14 +11,6 @@
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/jquery-ui-1.12.1.min.js"></script>
 
-
-    <style type="text/css">
-        .auto-style1 {
-            width: 80%;
-        }
-    </style>
-
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -64,6 +56,8 @@
                     </div>
                     <div class="panel-body">
                         <input id="ingresoSenaButton" type="button" value="Ingresar" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" />
+                        &nbsp;
+                        <asp:Button ID="registroUsuarioButton" runat="server" Text="Registrarse" CssClass="btn btn-warning btn-lg" OnClick="registroButton_Click" />
                     </div>
                 </div>
 
@@ -108,19 +102,18 @@
                                 <td>
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
-                                <asp:Button ID="registroButton" runat="server" Visible="false" Text="Registrarse" CssClass="btn btn-primary btn-xs" />
+                                <asp:Button ID="registroButton" runat="server" Visible="false" Text="Registrarse" CssClass="btn btn-primary btn-xs" OnClick="registroButton_Click" />
                             </ContentTemplate>
                             <Triggers>
                                 <asp:AsyncPostBackTrigger ControlID="inicioButton" EventName="click" />
                             </Triggers>
-                        </asp:UpdatePanel>
-                                    
+                        </asp:UpdatePanel> 
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="cancel" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="cancel" class="btn btn-default"  data-dismiss="modal">Cancelar</button>
                         <asp:Button ID="inicioButton" runat="server" Text="Ingresar" CssClass="btn btn-primary" OnClick="inicioButton_Click" />
 
                     </div>

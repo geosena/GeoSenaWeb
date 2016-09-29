@@ -10,7 +10,7 @@
 namespace GeoSenaWeb.Sesion {
     
     
-    public partial class Index {
+    public partial class RegistroUsuario {
         
         /// <summary>
         /// Control form1.
@@ -22,31 +22,31 @@ namespace GeoSenaWeb.Sesion {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control registroUsuarioButton.
+        /// Control apellidosTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registroUsuarioButton;
+        protected global::System.Web.UI.WebControls.TextBox apellidosTextBox;
         
         /// <summary>
-        /// Control panel.
+        /// Control nombresTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel panel;
+        protected global::System.Web.UI.WebControls.TextBox nombresTextBox;
         
         /// <summary>
-        /// Control mensajeLabel.
+        /// Control identificacionTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label mensajeLabel;
+        protected global::System.Web.UI.WebControls.TextBox identificacionTextBox;
         
         /// <summary>
         /// Control usuarioTextBox.
@@ -58,39 +58,84 @@ namespace GeoSenaWeb.Sesion {
         protected global::System.Web.UI.WebControls.TextBox usuarioTextBox;
         
         /// <summary>
-        /// Control contraseñaTextBox.
+        /// Control passwordTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contraseñaTextBox;
+        protected global::System.Web.UI.WebControls.TextBox passwordTextBox;
         
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control correoTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox correoTextBox;
         
         /// <summary>
-        /// Control registroButton.
+        /// Control centroDropDownList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registroButton;
+        protected global::System.Web.UI.WebControls.DropDownList centroDropDownList;
         
         /// <summary>
-        /// Control inicioButton.
+        /// Control fechaModificacionTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button inicioButton;
+        protected global::System.Web.UI.WebControls.TextBox fechaModificacionTextBox;
+        
+        /// <summary>
+        /// Control mensajeErrorLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label mensajeErrorLabel;
+        
+        /// <summary>
+        /// Control mensajeOKLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label mensajeOKLabel;
+        
+        /// <summary>
+        /// Control registroUsuarioButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button registroUsuarioButton;
+        
+        /// <summary>
+        /// Control cancelarButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelarButton;
+        
+        /// <summary>
+        /// Control sedeSqlDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sedeSqlDataSource;
     }
 }

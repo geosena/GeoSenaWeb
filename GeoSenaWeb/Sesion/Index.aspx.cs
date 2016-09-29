@@ -47,16 +47,23 @@ namespace GeoSenaWeb.Sesion
 
             if (administrador)
             {
+                mensajeLabel.Visible = true;
                 mensajeLabel.Text = "puedes ingresar administrador";
             }
             else
             {
+                mensajeLabel.Visible = true;
                 mensajeLabel.Text = "puedes ingresar usuario SENA";
 
             }
             
 
             
+        }
+
+        protected void registroButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegistroUsuario.aspx");
         }
     }
 }

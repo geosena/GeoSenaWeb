@@ -51,3 +51,5 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\es\Microsof
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\obj\Debug\GeoSenaWeb.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\obj\Debug\GeoSenaWeb.Tests.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\obj\Debug\GeoSenaWeb.Tests.pdb
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\CAD.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\CAD.pdb

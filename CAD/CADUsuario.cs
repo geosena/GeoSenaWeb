@@ -31,5 +31,12 @@ namespace CAD
 
             return true;
         }
+
+        public static void InsertUsuario(string Apellidos, string Nombres, int Identificacion, string Nick,
+            string Password, string Correo, int IdCentroFormacion, DateTime FechaModificacionClave)
+        {
+            adaptador.InsertUsuario(Apellidos, Nombres, Identificacion, Nick, Password, Correo, 
+                IdCentroFormacion, FechaModificacionClave);
+        }
     }
 }
