@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADCentro.cs" />
     <Compile Include="CADUsuario.cs" />
     <Compile Include="DSGeoSena.Designer.cs">
       <AutoGen>True</AutoGen>

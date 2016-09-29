@@ -65,6 +65,28 @@ namespace GeoSenaWeb
                     throw new InvalidOperationException("Error de validación del token Anti-XSRF.");
                 }
             }
+
+            if (Session["usuario"] == "")
+            {
+                adminMenuLinkButton.Visible = false;
+                userMenuLinkButton.Visible = false;
+                reporteMenuLinkButton.Visible = false;
+            }
+            else if (Session["usuario"] == "Administrador")
+            {
+                adminMenuLinkButton.Visible = true;
+                userMenuLinkButton.Visible = true;
+                reporteMenuLinkButton.Visible = true;
+                usuarioLabel.Text = "Administrador";
+            }
+            else if (Session["usuario"] == "Aprendiz Sena")
+            {
+                adminMenuLinkButton.Visible = false;
+                userMenuLinkButton.Visible = true;
+                reporteMenuLinkButton.Visible = false;
+                usuarioLabel.Text = "Aprendiz Sena";
+            }
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -78,11 +100,20 @@ namespace GeoSenaWeb
                 CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jquery.ui/" + str + "/jquery-ui.js",
                 CdnSupportsSecureConnection = true
             });
+
+            
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        protected void cerrarSesionLinkButton_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = "";
+
+            Response.Redirect("~/Sesion/Index");
         }
     }
 

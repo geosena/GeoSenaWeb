@@ -4,17 +4,17 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - GeoSena</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="Content/themes/base/all.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form runat="server">
@@ -48,30 +48,88 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/">GEO-SENA-PARQ
+                    </a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li>
+                            <asp:LinkButton ID="centrosLinkButton" runat="server" PostBackUrl="~/Movimientos/Compras.aspx">Centros</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton ID="NavegacionLinkButton" runat="server" PostBackUrl="~/Movimientos/Compras.aspx">Navegacion</asp:LinkButton>
+                        </li>
+
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Registrarse</a></li>
-                                <li><a runat="server" href="~/Account/Login">Iniciar sesión</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- administrador -->
+                        <li class="dropdown">
+                            <asp:LinkButton ID="adminMenuLinkButton" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server" PostBackUrl="~/">Administrador</asp:LinkButton>
+                            <ul class="dropdown-menu">
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LinkButton ID="LinkButton11" runat="server" PostBackUrl="~/Administracion/CentrosFormacion.aspx">Centro de Formación</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/">Usuarios</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="~/">Administradores</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+
+                        <!-- reportes -->
+                        <li class="dropdown">
+                            <asp:LinkButton ID="reporteMenuLinkButton" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server" PostBackUrl="~/">Reportes</asp:LinkButton>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:LinkButton ID="LinkButton6" runat="server" PostBackUrl="~/">Centro de Formación</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton7" runat="server" PostBackUrl="~/">Sedes</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton8" runat="server" PostBackUrl="~/">Parqueaderos</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton10" runat="server" PostBackUrl="~/">Apredendices Sena por Centro</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton13" runat="server" PostBackUrl="~/">Uso Aplicación</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+
+                        <!-- usuario -->
+                        <li class="dropdown">
+                            <asp:LinkButton ID="userMenuLinkButton" CssClass="dropdown-toggle"
+                                data-toggle="dropdown" runat="server" PostBackUrl="~/">
+                                Hola,
+                                <asp:Label ID="usuarioLabel" runat="server" Text="User"></asp:Label>
+                                ! 
+                                &nbsp;&nbsp;<span class="caret"></span>
+                            </asp:LinkButton>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:LinkButton ID="perfilLinkButton" runat="server">Perfil</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="cambioClaveLinkButton" runat="server">Cambio Contraseña</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <asp:LinkButton ID="cerrarSesionLinkButton" runat="server" OnClick="cerrarSesionLinkButton_Click">Cerrar Sesion</asp:LinkButton>
                                 </li>
                             </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

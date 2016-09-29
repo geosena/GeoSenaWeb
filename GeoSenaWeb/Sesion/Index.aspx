@@ -44,7 +44,7 @@
                         <h3 class="panel-title">Ingreso Sin Login</h3>
                     </div>
                     <div class="panel-body">
-                        <input id="ingresoButton" type="button" value="Ingresar" class="btn btn-primary btn-lg" />
+                        <asp:Button ID="ingresoButton" runat="server" Text="Ingresar" CssClass="btn btn-primary" OnClick="ingresoButton_Click" />
                     </div>
                 </div>
 
@@ -55,9 +55,9 @@
                         <h3 class="panel-title">Ingreso Usuario Sena</h3>
                     </div>
                     <div class="panel-body">
-                        <input id="ingresoSenaButton" type="button" value="Ingresar" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" />
+                        <input id="ingresoSenaButton" type="button" value="Ingresar" class="btn btn-info " data-toggle="modal" data-target="#myModal" />
                         &nbsp;
-                        <asp:Button ID="registroUsuarioButton" runat="server" Text="Registrarse" CssClass="btn btn-warning btn-lg" OnClick="registroButton_Click" />
+                        <asp:Button ID="registroUsuarioButton" runat="server" Text="Registrarse" CssClass="btn btn-warning " OnClick="registroButton_Click" />
                     </div>
                 </div>
 
