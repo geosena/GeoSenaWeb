@@ -48,7 +48,7 @@ namespace GeoSenaWeb.Sesion
             if (administrador)
             {
                 mensajeLabel.Visible = true;
-                Session["usuario"] = "Administrador";
+                Session["rol"] = "Administrador";
 
                 Response.Redirect("~/Default.aspx");
             }
@@ -56,7 +56,7 @@ namespace GeoSenaWeb.Sesion
             {
                 mensajeLabel.Visible = true;
 
-                Session["usuario"] = "Aprendiz Sena";
+                Session["rol"] = "Aprendiz Sena";
 
                 Response.Redirect("~/Default.aspx");
 

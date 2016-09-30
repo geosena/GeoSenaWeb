@@ -66,20 +66,20 @@ namespace GeoSenaWeb
                 }
             }
 
-            if (Session["usuario"] == "")
+            if (Session["rol"] == "")
             {
                 adminMenuLinkButton.Visible = false;
                 userMenuLinkButton.Visible = false;
                 reporteMenuLinkButton.Visible = false;
             }
-            else if (Session["usuario"] == "Administrador")
+            else if (Session["rol"] == "Administrador")
             {
                 adminMenuLinkButton.Visible = true;
                 userMenuLinkButton.Visible = true;
                 reporteMenuLinkButton.Visible = true;
                 usuarioLabel.Text = "Administrador";
             }
-            else if (Session["usuario"] == "Aprendiz Sena")
+            else if (Session["rol"] == "Aprendiz Sena")
             {
                 adminMenuLinkButton.Visible = false;
                 userMenuLinkButton.Visible = true;
@@ -101,7 +101,26 @@ namespace GeoSenaWeb
                 CdnSupportsSecureConnection = true
             });
 
-            
+            if (Session["rol"] == "")
+            {
+                adminMenuLinkButton.Visible = false;
+                userMenuLinkButton.Visible = false;
+                reporteMenuLinkButton.Visible = false;
+            }
+            else if (Session["rol"] == "Administrador")
+            {
+                adminMenuLinkButton.Visible = true;
+                userMenuLinkButton.Visible = true;
+                reporteMenuLinkButton.Visible = true;
+                usuarioLabel.Text = "Administrador";
+            }
+            else if (Session["rol"] == "Aprendiz Sena")
+            {
+                adminMenuLinkButton.Visible = false;
+                userMenuLinkButton.Visible = true;
+                reporteMenuLinkButton.Visible = false;
+                usuarioLabel.Text = "Aprendiz Sena";
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -111,7 +130,7 @@ namespace GeoSenaWeb
 
         protected void cerrarSesionLinkButton_Click(object sender, EventArgs e)
         {
-            Session["usuario"] = "";
+            Session["rol"] = "";
 
             Response.Redirect("~/Sesion/Index");
         }

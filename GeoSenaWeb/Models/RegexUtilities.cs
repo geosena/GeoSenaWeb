@@ -56,4 +56,24 @@ public class RegexUtilities
         }
         return match.Groups[1].Value + domainName;
     }
+
+    public bool IsValidUrl(string strIn)
+    {
+        invalid = false;
+        if (String.IsNullOrEmpty(strIn))
+            return false;
+
+        if (invalid)
+            return false;
+
+        try
+        {
+            return Regex.IsMatch(strIn, @"^http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?",
+                  RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
 }

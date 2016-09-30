@@ -21,7 +21,7 @@ namespace GeoSenaWeb
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["usuario"] = " ";
+            Session["rol"] = "";
         }
     }
 }

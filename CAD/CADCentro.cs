@@ -15,6 +15,16 @@ namespace CAD
             adaptador.DeleteCentro(IdCentroFormacion);
         }
 
+        public static void InsertCentro(string Descripcion, string Url)
+        {
+            adaptador.InsertCentro(Descripcion, Url);
+        }
+
+        public static void UpdateCentro(string Descripcion, string Url, int IdCentroFormacion)
+        {
+            adaptador.UpdateCentro(Descripcion, Url,IdCentroFormacion);
+        }
+
         public static bool ExisteCentro(int IdCentroFormacion)
         {
             if (adaptador.ExisteCentro(IdCentroFormacion) == null)
@@ -28,6 +38,11 @@ namespace CAD
         public static DSGeoSena.CentroFormacionDataTable GetCentroByIdCentroFormacion(int IdCentroFormacion)
         {
             return adaptador.GetCentroByIdCentroFormacion(IdCentroFormacion);
+        }
+
+        public static DSGeoSena.CentroFormacionDataTable GetData()
+        {
+            return adaptador.GetData();
         }
     }
 }

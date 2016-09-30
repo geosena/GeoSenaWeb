@@ -1,9 +1,13 @@
 ﻿using CAD;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +17,17 @@ namespace GeoSenaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (Session["rol"] == "")
+            //{
+            //    Session["rol"] = "";
+            //    Response.Redirect("~/Sesion/Index.aspx");
 
+            //}
+            //else if (Session["rol"] == "Aprendiz Sena")
+            //{
+            //    Session["rol"] = "";
+            //    Response.Redirect("~/Sesion/Index.aspx");
+            //}
         }
 
         protected void consultarButton_Click(object sender, EventArgs e)
@@ -71,16 +85,97 @@ namespace GeoSenaWeb
             nuevoButton.Enabled = false;
             limpiarButton.Enabled = false;
             cancelarButton.Enabled = true;
+
+            consultarButton.Enabled = false;
+
+            idTextBox.ReadOnly = true;
         }
 
         protected void nuevoButton_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                return;
+            }
 
+            DSGeoSena.CentroFormacionDataTable miCentro = CADCentro.GetData();
+
+            foreach (DataRow item in miCentro.Rows)
+            {
+
+                if (descripcionTextBox.Text == item["Descripcion"].ToString())
+                {
+                    MensajeLabel.Text = "El centro de formación ya existe ya existe";
+                    descripcionTextBox.Focus();
+                    return;
+                }
+            }
+
+            CADCentro.InsertCentro(descripcionTextBox.Text, urlTextBox.Text);
+
+            //actualizar grid tipoEmpleado
+            centroGridView.DataBind();
+
+            limpiarCampos();
+            deshabilitarBotones();
+
+            MensajeLabel.Text = "El centro de formación fue ingresado correctamente";
+        }
+
+        private bool ValidarCampos()
+        {
+            if (descripcionTextBox.Text == string.Empty)
+            {
+                MensajeLabel.Text = "Debe ingresar una descripción";
+                descripcionTextBox.Focus();
+                return false;
+            }
+
+            RegexUtilities validador = new RegexUtilities();
+
+            if (urlTextBox.Text != string.Empty)
+            {
+                if (!validador.IsValidUrl(urlTextBox.Text))
+                {
+                    MensajeLabel.Text = "Debe ingresar una direccion url valida";
+                    urlTextBox.Focus();
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         protected void modificarButton_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                return;
+            }
 
+            DSGeoSena.CentroFormacionDataTable miCentro = 
+                CADCentro.GetCentroByIdCentroFormacion(Convert.ToInt32(idTextBox.Text));
+
+            foreach (DataRow item in miCentro.Rows)
+            {
+                if (descripcionTextBox.Text == item["Descripcion"].ToString())
+                {
+                    MensajeLabel.Text = "El centro de formación ya existe ya existe";
+                    descripcionTextBox.Focus();
+                    return;
+                }
+            }
+
+            CADCentro.UpdateCentro(descripcionTextBox.Text,urlTextBox.Text, 
+                Convert.ToInt32(idTextBox.Text));
+
+            //actualizar grid tipoEmpleado
+            centroGridView.DataBind();
+
+            limpiarCampos();
+            deshabilitarBotones();
+
+            MensajeLabel.Text = "El centro de formación fue modificado correctamente";
         }
 
         protected void eliminarButton_Click(object sender, EventArgs e)
@@ -88,13 +183,14 @@ namespace GeoSenaWeb
             try
             {
                 CADCentro.DeleteCentro(Convert.ToInt32(idTextBox.Text));
-                MensajeLabel.Text = "El centro fue eliminado correctamente";
-
+                
                 //actualizar grid tipoEmpleado
                 centroGridView.DataBind();
 
                 limpiarCampos();
                 deshabilitarBotones();
+
+                MensajeLabel.Text = "El centro fue eliminado correctamente";
             }
             catch (Exception)
             {
@@ -122,6 +218,10 @@ namespace GeoSenaWeb
             nuevoButton.Enabled = true;
             limpiarButton.Enabled = true;
             cancelarButton.Enabled = false;
+
+            consultarButton.Enabled = true;
+
+            idTextBox.ReadOnly = false;
         }
 
         private void limpiarCampos()
@@ -131,6 +231,26 @@ namespace GeoSenaWeb
             urlTextBox.Text = string.Empty;
 
             MensajeLabel.Text = string.Empty;
+        }
+
+
+        [WebMethod]
+        public static string GetRecordsCentro(string criterio)
+        {
+            SqlConnection cn =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["GeoSenaDBConnectionString"].ConnectionString);
+
+            SqlDataAdapter da =
+                new SqlDataAdapter("SELECT [IdCentroFormacion], [Descripcion] FROM [CentroFormacion] WHERE Descripcion LIKE '%"
+                + criterio + "%' ORDER BY Descripcion", cn);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            string data = JsonConvert.SerializeObject(ds, Formatting.Indented);
+
+            return data;
         }
     }
 }

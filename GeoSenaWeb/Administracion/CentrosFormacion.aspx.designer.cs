@@ -13,6 +13,15 @@ namespace GeoSenaWeb {
     public partial class CentrosFormacion {
         
         /// <summary>
+        /// Control criterioCentroTextBox.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox criterioCentroTextBox;
+        
+        /// <summary>
         /// Control idTextBox.
         /// </summary>
         /// <remarks>
@@ -119,5 +128,14 @@ namespace GeoSenaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource centroSqlDataSource;
+        
+        /// <summary>
+        /// Control eliminarButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button eliminarButton1;
     }
 }
