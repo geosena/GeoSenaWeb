@@ -73,7 +73,7 @@ namespace GeoSenaWeb.Sesion
 
         protected void ingresoButton_Click(object sender, EventArgs e)
         {
-            Session["usuario"] = "";
+            Session["rol"] = "";
 
             Response.Redirect("~/Default.aspx");
         }

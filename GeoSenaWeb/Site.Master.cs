@@ -68,22 +68,28 @@ namespace GeoSenaWeb
 
             if (Session["rol"] == "")
             {
+                iniciarSesionLinkButton.Visible = true;
                 adminMenuLinkButton.Visible = false;
                 userMenuLinkButton.Visible = false;
                 reporteMenuLinkButton.Visible = false;
+                
             }
             else if (Session["rol"] == "Administrador")
             {
+                iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = true;
                 userMenuLinkButton.Visible = true;
                 reporteMenuLinkButton.Visible = true;
+                
                 usuarioLabel.Text = "Administrador";
             }
             else if (Session["rol"] == "Aprendiz Sena")
             {
+                iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = false;
                 userMenuLinkButton.Visible = true;
                 reporteMenuLinkButton.Visible = false;
+                
                 usuarioLabel.Text = "Aprendiz Sena";
             }
 
@@ -103,22 +109,28 @@ namespace GeoSenaWeb
 
             if (Session["rol"] == "")
             {
+                iniciarSesionLinkButton.Visible = true;
                 adminMenuLinkButton.Visible = false;
                 userMenuLinkButton.Visible = false;
                 reporteMenuLinkButton.Visible = false;
+
             }
             else if (Session["rol"] == "Administrador")
             {
+                iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = true;
                 userMenuLinkButton.Visible = true;
                 reporteMenuLinkButton.Visible = true;
+
                 usuarioLabel.Text = "Administrador";
             }
             else if (Session["rol"] == "Aprendiz Sena")
             {
+                iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = false;
                 userMenuLinkButton.Visible = true;
                 reporteMenuLinkButton.Visible = false;
+
                 usuarioLabel.Text = "Aprendiz Sena";
             }
         }

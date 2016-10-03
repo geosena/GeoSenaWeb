@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CentrosFormacion.aspx.cs" Inherits="GeoSenaWeb.CentrosFormacion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .fila{
+            min-width:400px;
+            max-width:700px;
+        }
+    </style>
     <script>
 
         function SelectRecordCentro(control) {
@@ -76,20 +82,20 @@
         <tr>
             <td class="text-right">Id Centro:</td>
             <td>
-                <asp:TextBox ID="idTextBox" runat="server" Width="100px" CssClass="idTextBox"></asp:TextBox>
+                <asp:TextBox ID="idTextBox" runat="server" Width="100px" CssClass="idTextBox" Height="26px"></asp:TextBox>
                 <input id="buscarCentroButton" type="button" value="..." />
             </td>
         </tr>
         <tr>
             <td class="text-right">Descripción:</td>
             <td>
-                <asp:TextBox ID="descripcionTextBox" runat="server" Width="600px" ></asp:TextBox>
+                <asp:TextBox ID="descripcionTextBox" runat="server" CssClass="fila" Height="26px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="text-right"><abbr data-toggle="tooltip" title="https://ejemplo.com">Url</abbr>:</td>
             <td>
-                <asp:TextBox ID="urlTextBox" runat="server" Width="600px" ToolTip="https://ejemplo.com"></asp:TextBox>
+                <asp:TextBox ID="urlTextBox" runat="server" CssClass="fila" Width="600px" ToolTip="https://ejemplo.com" Height="26px"></asp:TextBox>
             </td>
         </tr>
     </table>

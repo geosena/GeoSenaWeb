@@ -1,0 +1,159 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Sedes.aspx.cs" Inherits="GeoSenaWeb.Administracion.Sedes" %>
+<%@ register assembly="GMaps" namespace="Subgurim.Controles" tagprefix="cc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .fila{
+            min-width:400px;
+            max-width:700px;
+        }
+    </style>
+    <script async defer 
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tz9fTL13nob8D3MPBvpjoRBlE5hfok8&signed_in=true&callback=mostrar">
+        </script>
+    <h1>Sedes de Formación</h1>
+    <table class="table">
+        <tr>
+            <td >Id Sede:</td>
+            <td >
+                <asp:TextBox ID="idTextBox" runat="server" Height="26px"></asp:TextBox>
+                <input id="buscarCentroButton" type="button" value="..." />
+            </td>
+            <td class="text-right">Centro de Formación:</td>
+            <td >
+                <asp:DropDownList ID="centroFormacionDropDownList" runat="server" Height="26px" Width="400px" DataSourceID="centrosSqlDataSource" DataTextField="Descripcion" DataValueField="IdCentroFormacion">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td >Descripción:</td>
+            <td colspan="2">
+                <asp:TextBox ID="descripcionTextBox" runat="server" CssClass="fila" Height="26px"></asp:TextBox>
+            </td>
+            <td rowspan="7" >
+                <asp:Button ID="ObtenerCoordenadasButton" CssClass="btn btn-primary" runat="server" Text="Obtener Coordenadas GPS" OnClick="ObtenerCoordenadasButton_Click" />
+                <cc1:GMap ID="GMap1" runat="server" Width="400px" />
+            </td>
+        </tr>
+        <tr>
+            <td >Dirección:</td>
+            <td colspan="2">
+                <asp:TextBox ID="direccionTextBox" runat="server" CssClass="fila address" Height="26px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td >Latitud:</td>
+            <td colspan="2" >
+                <asp:TextBox ID="latitudTextBox" runat="server" Height="26px" Width="250px" CssClass="latitude" ReadOnly="True"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td >Longuitud:</td>
+            <td colspan="2" >
+                <asp:TextBox ID="longuitudTextBox" runat="server" Height="26px" Width="250px" CssClass="longitude" ReadOnly="True"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td >Tipo Teléfono:</td>
+            <td colspan="2" >
+                <asp:DropDownList ID="tipoTelefono1DropDownList" runat="server" Height="26px" Width="250px" DataSourceID="tipoTelefonoSqlDataSource" DataTextField="Descripcion" DataValueField="IdTipoTelefono">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td >Teléfono:</td>
+            <td colspan="2" >
+                <asp:TextBox ID="telefono1TextBox" runat="server" Height="26px" Width="250px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td >Horario Atencion:</td>
+            <td colspan="2">
+                <asp:TextBox ID="horarioTextBox" runat="server" CssClass="fila" Height="52px" TextMode="MultiLine"></asp:TextBox>
+            </td>
+        </tr>
+    </table>
+    <asp:Label ID="MensajeLabel" runat="server" Text="" CssClass="lead"></asp:Label>
+     <br />
+        <br />
+        <asp:Button ID="consultarButton" runat="server" CssClass="btn btn-primary consultarButton" Text="Consultar" OnClick="consultarButton_Click" />
+        |
+        <asp:Button ID="nuevoButton" runat="server" CssClass="btn btn-success" Text="Nuevo" OnClick="nuevoButton_Click" />
+        |
+        <asp:Button ID="modificarButton" runat="server" CssClass="btn btn-warning" Text="Modifcar" Enabled="False" OnClick="modificarButton_Click"  />
+        |
+        <asp:Button ID="eliminarButton" runat="server" CssClass="btn btn-danger" data-toggle="modal" data-target="#myModal" Text="Eliminar" Enabled="False" />
+        |
+        <asp:Button ID="limpiarButton" runat="server" CssClass="btn btn-info" Text="Limpiar" OnClick="limpiarButton_Click"  />
+        |
+        <asp:Button ID="cancelarButton" runat="server" CssClass="btn btn-default" Text="Cancelar" Enabled="False" OnClick="cancelarButton_Click"  />
+        |<br />
+    <br />
+    <asp:GridView ID="sedeFullGridView" runat="server" AllowPaging="True" AllowSorting="True" 
+        AutoGenerateColumns="False" DataSourceID="SedeFullSqlDataSource" 
+        EmptyDataText="No hay registros de datos para mostrar." 
+        CssClass="table table-striped table-hover">
+        <Columns>
+            <asp:BoundField DataField="IdSede" HeaderText="Id Sede" InsertVisible="False" ReadOnly="True" SortExpression="IdSede" />
+            <asp:BoundField DataField="IdCentroFormacion" HeaderText="IdCentroFormacion" SortExpression="IdCentroFormacion" Visible="False" />
+            <asp:BoundField DataField="Sede" HeaderText="Sede" SortExpression="Sede" />
+            <asp:BoundField DataField="Direccion" HeaderText="Dirección" SortExpression="Direccion" />
+            <asp:BoundField DataField="Latitud" HeaderText="Latitud" SortExpression="Latitud" DataFormatString="{0:N8}" Visible="False" />
+            <asp:BoundField DataField="Longuitud" HeaderText="Longuitud" SortExpression="Longuitud" Visible="False" />
+            <asp:BoundField DataField="Horario" HeaderText="Horario" SortExpression="Horario" />
+            <asp:BoundField DataField="IdTipoTelefono" HeaderText="IdTipoTelefono" SortExpression="IdTipoTelefono" Visible="False" />
+            <asp:BoundField DataField="TipoTelefono" HeaderText="Tipo Telefono" SortExpression="TipoTelefono" Visible="False" />
+            <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
+        </Columns>
+    </asp:GridView>
+
+     <!-- Eliminar modal-->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Confirmacion</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Esta seguro de borrar el registro?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+                    <asp:Button ID="eliminarButton1" runat="server" CssClass="btn btn-primary" Text="SI" OnClick="eliminarButton_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <asp:SqlDataSource ID="SedeFullSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" SelectCommand="SELECT 
+Sede.IdSede, 
+Sede.IdCentroFormacion, 
+Sede.Descripcion AS Sede, 
+Ubicacion.Direccion, 
+Ubicacion.Latitud, 
+Ubicacion.Longuitud, 
+Ubicacion.Horario, 
+Telefono.IdTipoTelefono, 
+TipoTelefono.Descripcion AS TipoTelefono, 
+Telefono.Telefono
+FROM Sede INNER JOIN
+ Ubicacion ON Sede.IdUbicacion = Ubicacion.IdUbicacion 
+ INNER JOIN
+ Telefono ON Ubicacion.IdUbicacion = Telefono.IdUbicacion 
+ INNER JOIN
+ CentroFormacion ON Sede.IdCentroFormacion = CentroFormacion.IdCentroFormacion 
+ INNER JOIN
+ TipoTelefono ON Telefono.IdTipoTelefono = TipoTelefono.IdTipoTelefono"></asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="centrosSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" SelectCommand="SELECT [IdCentroFormacion], [Descripcion] 
+FROM [CentroFormacion]
+UNION
+SELECT 0, '[Seleccione un centro de formacion]'
+ORDER BY 2"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="tipoTelefonoSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" SelectCommand="SELECT [IdTipoTelefono], [Descripcion] 
+FROM [TipoTelefono]
+UNION SELECT 0,'[Seleccione un tipo de telefono]'
+ORDER BY 2"></asp:SqlDataSource>
+</asp:Content>

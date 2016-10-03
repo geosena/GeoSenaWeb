@@ -80,3 +80,9 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Debug\GeoSenaWeb.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Debug\GeoSenaWeb.pdb
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CAD.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CAD.pdb
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Google.Api.Maps.Service.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Google.Api.Maps.Service.xml
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.pdb
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.xml
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GMaps.dll

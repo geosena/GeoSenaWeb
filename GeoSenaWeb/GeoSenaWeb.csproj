@@ -47,6 +47,17 @@
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GMaps">
+      <HintPath>D:\MIS DOCUMENTOS\DESCARGAS\GMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Maps.Service, Version=0.9.2.40292, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Api.Maps.Service.1.1.4\lib\net45\Google.Api.Maps.Service.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GoogleApi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1ab4932a36a8b2c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleApi.2.0.13\lib\net451\GoogleApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -172,6 +183,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Administracion\CentrosFormacion.aspx" />
+    <Content Include="Administracion\Sedes.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap1.css" />
@@ -227,6 +239,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\GetMapa.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -384,6 +397,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Sedes.aspx.cs">
+      <DependentUpon>Sedes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\Sedes.aspx.designer.cs">
+      <DependentUpon>Sedes.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

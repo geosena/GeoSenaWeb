@@ -62,10 +62,10 @@ namespace GeoSenaWeb
                 return;
             }
 
-            DSGeoSena.CentroFormacionDataTable miEmpleado = 
+            DSGeoSena.CentroFormacionDataTable miCentro = 
                 CADCentro.GetCentroByIdCentroFormacion(Convert.ToInt32(idTextBox.Text));
 
-            foreach (DataRow item in miEmpleado.Rows)
+            foreach (DataRow item in miCentro.Rows)
             {
                 idTextBox.Text = item["IdCentroFormacion"].ToString();
                 descripcionTextBox.Text = item["Descripcion"].ToString();
@@ -86,8 +86,6 @@ namespace GeoSenaWeb
             limpiarButton.Enabled = false;
             cancelarButton.Enabled = true;
 
-            consultarButton.Enabled = false;
-
             idTextBox.ReadOnly = true;
         }
 
@@ -105,7 +103,7 @@ namespace GeoSenaWeb
 
                 if (descripcionTextBox.Text == item["Descripcion"].ToString())
                 {
-                    MensajeLabel.Text = "El centro de formación ya existe ya existe";
+                    MensajeLabel.Text = "El centro de formación ya existe";
                     descripcionTextBox.Focus();
                     return;
                 }
@@ -218,8 +216,6 @@ namespace GeoSenaWeb
             nuevoButton.Enabled = true;
             limpiarButton.Enabled = true;
             cancelarButton.Enabled = false;
-
-            consultarButton.Enabled = true;
 
             idTextBox.ReadOnly = false;
         }

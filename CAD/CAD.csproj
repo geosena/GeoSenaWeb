@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CADCentro.cs" />
+    <Compile Include="CADSede.cs" />
     <Compile Include="CADUsuario.cs" />
+    <Compile Include="DSGeoSena.cs">
+      <DependentUpon>DSGeoSena.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSGeoSena.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

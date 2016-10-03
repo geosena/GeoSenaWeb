@@ -67,10 +67,17 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- administrador -->
                         <li class="dropdown">
+                            <asp:LinkButton ID="iniciarSesionLinkButton" runat="server" PostBackUrl="~/Sesion/Index.aspx">Iniciar Sesion</asp:LinkButton>
                             <asp:LinkButton ID="adminMenuLinkButton" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server" PostBackUrl="~/">Administrador</asp:LinkButton>
                             <ul class="dropdown-menu">
                                 <li>
                                     <asp:LinkButton ID="LinkButton11" runat="server" PostBackUrl="~/Administracion/CentrosFormacion.aspx">Centro de Formación</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Administracion/Sedes.aspx">Sedes</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/">Parqueaderos</asp:LinkButton>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
