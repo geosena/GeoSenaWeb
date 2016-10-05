@@ -66,7 +66,7 @@ namespace GeoSenaWeb
                 }
             }
 
-            if (Session["rol"] == "")
+            if (Session["rol"].Equals(""))
             {
                 iniciarSesionLinkButton.Visible = true;
                 adminMenuLinkButton.Visible = false;
@@ -74,7 +74,7 @@ namespace GeoSenaWeb
                 reporteMenuLinkButton.Visible = false;
                 
             }
-            else if (Session["rol"] == "Administrador")
+            else if (Session["rol"].Equals("Administrador"))
             {
                 iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = true;
@@ -83,7 +83,7 @@ namespace GeoSenaWeb
                 
                 usuarioLabel.Text = "Administrador";
             }
-            else if (Session["rol"] == "Aprendiz Sena")
+            else if (Session["rol"].Equals("Aprendiz Sena"))
             {
                 iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = false;
@@ -107,7 +107,7 @@ namespace GeoSenaWeb
                 CdnSupportsSecureConnection = true
             });
 
-            if (Session["rol"] == "")
+            if (Session["rol"].Equals(""))
             {
                 iniciarSesionLinkButton.Visible = true;
                 adminMenuLinkButton.Visible = false;
@@ -115,7 +115,7 @@ namespace GeoSenaWeb
                 reporteMenuLinkButton.Visible = false;
 
             }
-            else if (Session["rol"] == "Administrador")
+            else if (Session["rol"].Equals("Administrador"))
             {
                 iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = true;
@@ -124,7 +124,7 @@ namespace GeoSenaWeb
 
                 usuarioLabel.Text = "Administrador";
             }
-            else if (Session["rol"] == "Aprendiz Sena")
+            else if (Session["rol"].Equals("Aprendiz Sena"))
             {
                 iniciarSesionLinkButton.Visible = false;
                 adminMenuLinkButton.Visible = false;

@@ -9,6 +9,7 @@ namespace GeoSenaWeb.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            
         }
     }
 }

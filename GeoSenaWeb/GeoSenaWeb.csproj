@@ -183,6 +183,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Administracion\CentrosFormacion.aspx" />
+    <Content Include="Administracion\Parqueaderos.aspx" />
     <Content Include="Administracion\Sedes.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -397,6 +398,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Parqueaderos.aspx.cs">
+      <DependentUpon>Parqueaderos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\Parqueaderos.aspx.designer.cs">
+      <DependentUpon>Parqueaderos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administracion\Sedes.aspx.cs">
       <DependentUpon>Sedes.aspx</DependentUpon>

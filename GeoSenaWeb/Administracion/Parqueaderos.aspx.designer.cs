@@ -10,16 +10,16 @@
 namespace GeoSenaWeb.Administracion {
     
     
-    public partial class Sedes {
+    public partial class Parqueaderos {
         
         /// <summary>
-        /// Control criterioSedeTextBox.
+        /// Control criterioParqueaderoTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox criterioSedeTextBox;
+        protected global::System.Web.UI.WebControls.TextBox criterioParqueaderoTextBox;
         
         /// <summary>
         /// Control idTextBox.
@@ -31,13 +31,13 @@ namespace GeoSenaWeb.Administracion {
         protected global::System.Web.UI.WebControls.TextBox idTextBox;
         
         /// <summary>
-        /// Control centroFormacionDropDownList.
+        /// Control sedeDropDownList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList centroFormacionDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList sedeDropDownList;
         
         /// <summary>
         /// Control descripcionTextBox.
@@ -92,6 +92,15 @@ namespace GeoSenaWeb.Administracion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox longuitudTextBox;
+        
+        /// <summary>
+        /// Control cupoTextBox.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cupoTextBox;
         
         /// <summary>
         /// Control tipoTelefono1DropDownList.
@@ -184,13 +193,13 @@ namespace GeoSenaWeb.Administracion {
         protected global::System.Web.UI.WebControls.Button cancelarButton;
         
         /// <summary>
-        /// Control sedeFullGridView.
+        /// Control parqueaderoFullGridView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView sedeFullGridView;
+        protected global::System.Web.UI.WebControls.GridView parqueaderoFullGridView;
         
         /// <summary>
         /// Control eliminarButton1.
@@ -202,22 +211,13 @@ namespace GeoSenaWeb.Administracion {
         protected global::System.Web.UI.WebControls.Button eliminarButton1;
         
         /// <summary>
-        /// Control SedeFullSqlDataSource.
+        /// Control sedeSqlDataSource.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SedeFullSqlDataSource;
-        
-        /// <summary>
-        /// Control centrosSqlDataSource.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource centrosSqlDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource sedeSqlDataSource;
         
         /// <summary>
         /// Control tipoTelefonoSqlDataSource.
@@ -227,5 +227,14 @@ namespace GeoSenaWeb.Administracion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource tipoTelefonoSqlDataSource;
+        
+        /// <summary>
+        /// Control parqueaderoFullSqlDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource parqueaderoFullSqlDataSource;
     }
 }

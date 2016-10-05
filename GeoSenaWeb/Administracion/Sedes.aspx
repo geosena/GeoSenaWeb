@@ -9,14 +9,86 @@
     </style>
     <script async defer 
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tz9fTL13nob8D3MPBvpjoRBlE5hfok8&signed_in=true&callback=mostrar">
-        </script>
+    </script>
+
+    <script>
+
+        function SelectRecordSede(control) {
+
+            var ID = $(control).closest("tr").find("label").html();
+            $(".idTextBox").val(ID);
+            $(".consultarButton").click();
+            $("#dialog-search-sede").dialog("close");
+        }
+
+        $(document).ready(function () {
+
+            $("#buscarSedeButton").click(function () {
+                $("#dialog-search-sede").dialog({
+                    resizable: false,
+                    height: 500,
+                    width: 700,
+                    modal: true,
+                    buttons: {
+                        "Cerrar": function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            });
+
+            $("#buscarSede2Button").click(function () {
+
+                var pageUrl = '<%= ResolveUrl("~/Administracion/Sedes.aspx/GetRecordsSede") %>';
+
+                var criterio = $("#<%= criterioSedeTextBox.ClientID %>").val();
+
+                var parameter = { "criterio": criterio }
+
+                $.ajax({
+                    url: pageUrl,
+                    type: "POST",
+                    data: JSON.stringify(parameter),
+                    contentType: "application/json; charser=utf-8",
+                    datatype: "json",
+                    success: function (result) {
+                        $("#dataSede").empty();
+                        var data = JSON.parse(result.d);
+                        var array = data.Table;
+                        var temp = "<table class='table'><tr><th>ID Sede</th><th>Descripción</th><th>Selección</th></tr>";
+                        for (var i = 0; i < array.length; i++) {
+                            temp += "<tr>";
+                            temp += "<td><label>" + array[i].IdSede + "</label></td>";
+                            temp += "<td><label>" + array[i].Descripcion + "</label></td>";
+                            temp += "<td><input itag='Select' type='button' value='Seleccionar' onclick='return SelectRecordSede(this)'/></td>";
+                            temp += "</tr>";
+                        }
+                        temp += "</table>";
+                        $("#dataSede").append(temp);
+                    },
+                    error: function (err) {
+                        alert("Fail " + err);
+                    }
+                });
+            });
+        });
+    </script>
+    <div id="dialog-search-sede" title="Búsqueda de sedes de formación" style="display:none;">
+        Críterio:
+        <asp:TextBox ID="criterioSedeTextBox" CssClass="criterioSedeTextBox" runat="server"></asp:TextBox>
+        <input id="buscarSede2Button" type="button" value="Buscar" />
+        <br />
+        <div id="dataSede"></div>
+    </div>
+
+
     <h1>Sedes de Formación</h1>
     <table class="table">
         <tr>
             <td >Id Sede:</td>
             <td >
-                <asp:TextBox ID="idTextBox" runat="server" Height="26px"></asp:TextBox>
-                <input id="buscarCentroButton" type="button" value="..." />
+                <asp:TextBox ID="idTextBox" runat="server" Height="26px" CssClass="idTextBox"></asp:TextBox>
+                <input id="buscarSedeButton" type="button" value="..." />
             </td>
             <td class="text-right">Centro de Formación:</td>
             <td >
@@ -31,7 +103,14 @@
             </td>
             <td rowspan="7" >
                 <asp:Button ID="ObtenerCoordenadasButton" CssClass="btn btn-primary" runat="server" Text="Obtener Coordenadas GPS" OnClick="ObtenerCoordenadasButton_Click" />
-                <cc1:GMap ID="GMap1" runat="server" Width="400px" />
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <cc1:gmap ID="GMap1" runat="server" Width="500px" />
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ObtenerCoordenadasButton" EventName="click" />
+                    </Triggers>
+                </asp:UpdatePanel>
             </td>
         </tr>
         <tr>
@@ -43,13 +122,27 @@
         <tr>
             <td >Latitud:</td>
             <td colspan="2" >
-                <asp:TextBox ID="latitudTextBox" runat="server" Height="26px" Width="250px" CssClass="latitude" ReadOnly="True"></asp:TextBox>
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <asp:TextBox ID="latitudTextBox" runat="server" Height="26px" Width="250px" CssClass="latitude" ReadOnly="True"></asp:TextBox>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ObtenerCoordenadasButton" EventName="click" />
+                    </Triggers>
+                </asp:UpdatePanel>
             </td>
         </tr>
         <tr>
             <td >Longuitud:</td>
             <td colspan="2" >
-                <asp:TextBox ID="longuitudTextBox" runat="server" Height="26px" Width="250px" CssClass="longitude" ReadOnly="True"></asp:TextBox>
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <asp:TextBox ID="longuitudTextBox" runat="server" Height="26px" Width="250px" CssClass="longitude" ReadOnly="True"></asp:TextBox>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ObtenerCoordenadasButton" EventName="click" />
+                    </Triggers>
+                </asp:UpdatePanel>
             </td>
         </tr>
         <tr>
@@ -88,7 +181,9 @@
         <asp:Button ID="cancelarButton" runat="server" CssClass="btn btn-default" Text="Cancelar" Enabled="False" OnClick="cancelarButton_Click"  />
         |<br />
     <br />
-    <asp:GridView ID="sedeFullGridView" runat="server" AllowPaging="True" AllowSorting="True" 
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+            <asp:GridView ID="sedeFullGridView" runat="server" AllowPaging="True" AllowSorting="True" 
         AutoGenerateColumns="False" DataSourceID="SedeFullSqlDataSource" 
         EmptyDataText="No hay registros de datos para mostrar." 
         CssClass="table table-striped table-hover">
@@ -105,6 +200,8 @@
             <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
         </Columns>
     </asp:GridView>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
      <!-- Eliminar modal-->
     <div class="modal" id="myModal">
@@ -127,33 +224,40 @@
 
 
 
-    <asp:SqlDataSource ID="SedeFullSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" SelectCommand="SELECT 
-Sede.IdSede, 
-Sede.IdCentroFormacion, 
-Sede.Descripcion AS Sede, 
-Ubicacion.Direccion, 
-Ubicacion.Latitud, 
-Ubicacion.Longuitud, 
-Ubicacion.Horario, 
-Telefono.IdTipoTelefono, 
-TipoTelefono.Descripcion AS TipoTelefono, 
-Telefono.Telefono
-FROM Sede INNER JOIN
- Ubicacion ON Sede.IdUbicacion = Ubicacion.IdUbicacion 
- INNER JOIN
- Telefono ON Ubicacion.IdUbicacion = Telefono.IdUbicacion 
- INNER JOIN
- CentroFormacion ON Sede.IdCentroFormacion = CentroFormacion.IdCentroFormacion 
- INNER JOIN
- TipoTelefono ON Telefono.IdTipoTelefono = TipoTelefono.IdTipoTelefono"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SedeFullSqlDataSource" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" 
+        SelectCommand="SELECT 
+                Sede.IdSede, 
+                Sede.IdCentroFormacion, 
+                Sede.Descripcion AS Sede, 
+                Ubicacion.Direccion, 
+                Ubicacion.Latitud, 
+                Ubicacion.Longuitud, 
+                Ubicacion.Horario, 
+                Telefono.IdTipoTelefono, 
+                TipoTelefono.Descripcion AS TipoTelefono, 
+                Telefono.Telefono
+                FROM Sede INNER JOIN
+                 Ubicacion ON Sede.IdUbicacion = Ubicacion.IdUbicacion 
+                 INNER JOIN
+                 Telefono ON Ubicacion.IdUbicacion = Telefono.IdUbicacion 
+                 INNER JOIN
+                 CentroFormacion ON Sede.IdCentroFormacion = CentroFormacion.IdCentroFormacion 
+                 INNER JOIN
+                 TipoTelefono ON Telefono.IdTipoTelefono = TipoTelefono.IdTipoTelefono">
+    </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="centrosSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" SelectCommand="SELECT [IdCentroFormacion], [Descripcion] 
-FROM [CentroFormacion]
-UNION
-SELECT 0, '[Seleccione un centro de formacion]'
-ORDER BY 2"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="tipoTelefonoSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" SelectCommand="SELECT [IdTipoTelefono], [Descripcion] 
-FROM [TipoTelefono]
-UNION SELECT 0,'[Seleccione un tipo de telefono]'
-ORDER BY 2"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="centrosSqlDataSource" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" 
+        SelectCommand="SELECT [IdCentroFormacion], [Descripcion] FROM [CentroFormacion]
+                        UNION
+                        SELECT 0, '[Seleccione un centro de formacion]'
+                        ORDER BY 2">
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="tipoTelefonoSqlDataSource" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" 
+        SelectCommand="SELECT [IdTipoTelefono], [Descripcion] FROM [TipoTelefono]
+                        UNION SELECT 0,'[Seleccione un tipo de telefono]'
+                        ORDER BY 2">
+    </asp:SqlDataSource>
 </asp:Content>

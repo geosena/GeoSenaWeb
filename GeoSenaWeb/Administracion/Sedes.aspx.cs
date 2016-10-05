@@ -8,6 +8,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Subgurim.Controles;
 using System.Text;
+using System.Web.Services;
+using System.Data.SqlClient;
+using System.Configuration;
+using Newtonsoft.Json;
 
 namespace GeoSenaWeb.Administracion
 {
@@ -15,12 +19,13 @@ namespace GeoSenaWeb.Administracion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DibujarMapa("Bogota,Colombia", 13);
+
             if (!IsPostBack)
             {
-                limpiarCampos();
+                latitudTextBox.Text = string.Empty;
+                longuitudTextBox.Text = string.Empty;
             }
-
-            DibujarMapa("Bogota,Colombia", 13);
         }
 
         protected void consultarButton_Click(object sender, EventArgs e)
@@ -111,10 +116,10 @@ namespace GeoSenaWeb.Administracion
                 }
             }
 
-            int idUbicacion = CADSede.InsertUbicacion(direccionTextBox.Text, Convert.ToDouble(latitudTextBox.Text),
+            int idUbicacion = CADUbicacion.InsertUbicacion(direccionTextBox.Text, Convert.ToDouble(latitudTextBox.Text),
                 Convert.ToDouble(longuitudTextBox.Text), horarioTextBox.Text);
 
-            CADSede.InsertTelefono(Convert.ToInt32(tipoTelefono1DropDownList.SelectedValue), idUbicacion,
+            CADTelefono.InsertTelefono(Convert.ToInt32(tipoTelefono1DropDownList.SelectedValue), idUbicacion,
                 telefono1TextBox.Text);
 
             CADSede.InsertSede(Convert.ToInt32(centroFormacionDropDownList.SelectedValue), descripcionTextBox.Text,
@@ -192,10 +197,10 @@ namespace GeoSenaWeb.Administracion
             int idUbicacion = Convert.ToInt32(miCentro.Rows[0].ItemArray[4].ToString());
             int idTelefono = Convert.ToInt32(miCentro.Rows[0].ItemArray[9].ToString());
 
-            CADSede.UpdateUbicacion(direccionTextBox.Text, Convert.ToDouble(latitudTextBox.Text),
+            CADUbicacion.UpdateUbicacion(direccionTextBox.Text, Convert.ToDouble(latitudTextBox.Text),
                 Convert.ToDouble(longuitudTextBox.Text), horarioTextBox.Text,idUbicacion);
 
-            CADSede.UpdateTelefono(idTipoTelefono, idUbicacion,
+            CADTelefono.UpdateTelefono(idTipoTelefono, idUbicacion,
                 telefono1TextBox.Text,idTelefono);
 
             CADSede.UpdateSede(idCentroFormacion, descripcionTextBox.Text,
@@ -221,9 +226,9 @@ namespace GeoSenaWeb.Administracion
 
             CADSede.DeleteSede(idSede);
 
-            CADSede.DeleteTelefono(idTelefono);
+            CADTelefono.DeleteTelefono(idTelefono);
 
-            CADSede.DeleteUbicacion(idUbicacion);
+            CADUbicacion.DeleteUbicacion(idUbicacion);
 
             //actualizar grid tipoEmpleado
             sedeFullGridView.DataBind();
@@ -279,25 +284,6 @@ namespace GeoSenaWeb.Administracion
             DibujarMapa(direccion, 19);
 
             tipoTelefono1DropDownList.Focus();
-
-            //double latitud = Convert.ToDouble(latitudTextBox.Text);
-            //double longuitud = Convert.ToDouble(latitudTextBox.Text);
-            //GLatLng ubicacion = new GLatLng(latitud, longuitud);
-            //GMap1.setCenter(ubicacion, 17);
-            //GMap1.Height = 300;
-            //GMap1.Width = 400;
-
-
-            //GMap1.Add(new GControl(GControl.preBuilt.LargeMapControl));
-
-            ////tipo de mapa
-            //GMap1.Add(new GControl(GControl.preBuilt.MapTypeControl));
-
-            ////habilitar el zoom con el scroll
-            //GMap1.enableHookMouseWheelToZoom = true;
-
-            ////tipo de mapa a mostrar
-            ////GMap1.mapType = GMapType.GTypes.Normal;
         }
 
         private void DibujarMapa(string direccion, int zoom)
@@ -305,10 +291,10 @@ namespace GeoSenaWeb.Administracion
             try
             {
                 GeoCode GeoCode;
-                string aMapKey = "AIzaSyA_tz9fTL13nob8D3MPBvpjoRBlE5hfok8";
-                //System.Configuration.ConfigurationManager.AppSettings("googlemaps.subgurim.net");
 
-                GeoCode = GMap.geoCodeRequest(direccion, aMapKey);
+                string skey = ConfigurationManager.AppSettings["googlemaps.subgurim.net"];
+
+                GeoCode = GMap.geoCodeRequest(direccion, skey);
 
                 if (GeoCode.valid)
                 {
@@ -318,13 +304,15 @@ namespace GeoSenaWeb.Administracion
                     GLatLng gLatLng =
                         new GLatLng(GeoCode.Placemark.coordinates.lat, GeoCode.Placemark.coordinates.lng);
 
-                    GMap1.setCenter(gLatLng, zoom, GMapType.GTypes.Normal);
                     GMarker icono = new GMarker(gLatLng, new GMarkerOptions(new GIcon(), true));
-                    //GInfoWindow window = new GInfoWindow(gLatLng, "<b>infoWindow</b> example");
-                    //GInfoWindow window = new GInfoWindow(icono, "<b>infoWindow</b> example",false,GListener.Event.mouseover);
-                    GInfoWindow window = new GInfoWindow(icono, "" + direccion, false);
+
+                    GInfoWindow window = new GInfoWindow(icono, "" + direccion, true);
+
                     GMap1.enableHookMouseWheelToZoom = true;
+
                     GMap1.Add(window);
+                    GMap1.enableRotation = true;
+                    GMap1.setCenter(gLatLng, zoom);
                 }
                 else
                 {
@@ -337,5 +325,25 @@ namespace GeoSenaWeb.Administracion
                 MensajeLabel.Text = "Error: " + ex.Message;
             }
         }
+
+        [WebMethod]
+        public static string GetRecordsSede(string criterio)
+        {
+            SqlConnection cn =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["GeoSenaDBConnectionString"].ConnectionString);
+
+            SqlDataAdapter da =
+                new SqlDataAdapter("SELECT [IdSede], [Descripcion] FROM [Sede] WHERE Descripcion LIKE '%"
+                + criterio + "%' ORDER BY Descripcion", cn);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            string data = JsonConvert.SerializeObject(ds, Formatting.Indented);
+
+            return data;
+        }
+
     }
 }
