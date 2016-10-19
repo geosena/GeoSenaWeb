@@ -67,6 +67,9 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Recaptcha">
+      <HintPath>D:\MIS DOCUMENTOS\DESCARGAS\Recaptcha.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -166,7 +169,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
+    <Content Include="Aplicacion\About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -182,10 +185,13 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Administracion\Administrador.aspx" />
     <Content Include="Administracion\CentrosFormacion.aspx" />
     <Content Include="Administracion\Parqueaderos.aspx" />
     <Content Include="Administracion\Sedes.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="Administracion\Usuarios.aspx" />
+    <Content Include="Aplicacion\Centros.aspx" />
+    <Content Include="Aplicacion\Navegacion.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap1.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -237,6 +243,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <Content Include="Images\consultor.jpg" />
+    <Content Include="Images\logoSena.png" />
+    <Content Include="Perfil\Perfil.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -399,6 +407,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Administrador.aspx.cs">
+      <DependentUpon>Administrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\Administrador.aspx.designer.cs">
+      <DependentUpon>Administrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Parqueaderos.aspx.cs">
       <DependentUpon>Parqueaderos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -413,12 +428,33 @@
     <Compile Include="Administracion\Sedes.aspx.designer.cs">
       <DependentUpon>Sedes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\Centros.aspx.cs">
+      <DependentUpon>Centros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\Centros.aspx.designer.cs">
+      <DependentUpon>Centros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicacion\Navegacion.aspx.cs">
+      <DependentUpon>Navegacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\Navegacion.aspx.designer.cs">
+      <DependentUpon>Navegacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
+    <Compile Include="Aplicacion\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
+    <Compile Include="Aplicacion\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -430,13 +466,6 @@
     </Compile>
     <Compile Include="Administracion\CentrosFormacion.aspx.designer.cs">
       <DependentUpon>CentrosFormacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -450,6 +479,13 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RegexUtilities.cs" />
+    <Compile Include="Perfil\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesion\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

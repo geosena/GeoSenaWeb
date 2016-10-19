@@ -1,6 +1,7 @@
 ﻿using CAD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -13,10 +14,7 @@ namespace GeoSenaWeb.Sesion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                fechaModificacionTextBox.Text = DateTime.Now.ToShortDateString();
-            }
+            fechaModificacionTextBox.Text = DateTime.Now.ToShortDateString();
         }
 
         protected void cancelarButton_Click(object sender, EventArgs e)
@@ -31,7 +29,21 @@ namespace GeoSenaWeb.Sesion
                 return;
             }
 
-           CADUsuario.InsertUsuario(apellidosTextBox.Text, nombresTextBox.Text, 
+            DSGeoSena.UsuarioDataTable miUsuario = CADUsuario.GetData();
+
+            foreach (DataRow item in miUsuario.Rows)
+            {
+
+                if (usuarioTextBox.Text == item["Nick"].ToString())
+                {
+                    mensajeErrorLabel.Visible = true;
+                    mensajeErrorLabel.Text = "El usuario ya existe";
+                    usuarioTextBox.Focus();
+                    return;
+                }
+            }
+
+            CADUsuario.InsertUsuario(apellidosTextBox.Text, nombresTextBox.Text, 
                 Convert.ToInt32(identificacionTextBox.Text), usuarioTextBox.Text,
                 passwordTextBox.Text, correoTextBox.Text, Convert.ToInt32(centroDropDownList.SelectedValue),
                 Convert.ToDateTime(fechaModificacionTextBox.Text));

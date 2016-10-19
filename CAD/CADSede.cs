@@ -50,6 +50,16 @@ namespace CAD
             return adaptadorFull.GetDataByIdSede(IdSede);
         }
 
+        public static DSGeoSena.SedeFullDataTable GetDataByIdCentroFormacion(int IdCentroFormacion)
+        {
+            return adaptadorFull.GetDataByIdCentroFormacion(IdCentroFormacion);
+        }
+
+        public static DSGeoSena.SedeFullDataTable GetDataFull()
+        {
+            return adaptadorFull.GetData();
+        }
+
         public static DSGeoSena.SedeDataTable GetData()
         {
             return adaptador.GetData();

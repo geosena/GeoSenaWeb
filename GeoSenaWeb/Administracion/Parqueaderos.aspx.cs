@@ -18,10 +18,10 @@ namespace GeoSenaWeb.Administracion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DibujarMapa("Bogota,Colombia", 13);
-
             if (!IsPostBack)
             {
+                DibujarMapa("Bogota,Colombia", 13);
+
                 latitudTextBox.Text = string.Empty;
                 longuitudTextBox.Text = string.Empty;
             }
@@ -32,10 +32,10 @@ namespace GeoSenaWeb.Administracion
             try
             {
                 GeoCode GeoCode;
-                string aMapKey = "AIzaSyA_tz9fTL13nob8D3MPBvpjoRBlE5hfok8";
-                //System.Configuration.ConfigurationManager.AppSettings("googlemaps.subgurim.net");
 
-                GeoCode = GMap.geoCodeRequest(direccion, aMapKey);
+                string skey = ConfigurationManager.AppSettings["googlemaps.subgurim.net"];
+
+                GeoCode = GMap.geoCodeRequest(direccion, skey);
 
                 if (GeoCode.valid)
                 {
@@ -45,13 +45,15 @@ namespace GeoSenaWeb.Administracion
                     GLatLng gLatLng =
                         new GLatLng(GeoCode.Placemark.coordinates.lat, GeoCode.Placemark.coordinates.lng);
 
-                    GMap1.setCenter(gLatLng, zoom, GMapType.GTypes.Normal);
                     GMarker icono = new GMarker(gLatLng, new GMarkerOptions(new GIcon(), true));
-                    //GInfoWindow window = new GInfoWindow(gLatLng, "<b>infoWindow</b> example");
-                    //GInfoWindow window = new GInfoWindow(icono, "<b>infoWindow</b> example",false,GListener.Event.mouseover);
-                    GInfoWindow window = new GInfoWindow(icono, "" + direccion, false);
+
+                    GInfoWindow window = new GInfoWindow(icono, "" + direccion, true);
+
                     GMap1.enableHookMouseWheelToZoom = true;
+
                     GMap1.Add(window);
+                    GMap1.enableRotation = true;
+                    GMap1.setCenter(gLatLng, zoom);
                 }
                 else
                 {
@@ -282,10 +284,11 @@ namespace GeoSenaWeb.Administracion
             int idSede = Convert.ToInt32(sedeDropDownList.SelectedValue);
             int idTipoTelefono = Convert.ToInt32(tipoTelefono1DropDownList.SelectedValue);
 
-            DSGeoSena.ParqueaderoFullDataTable miCentro = CADParqueadero.GetDataByIdParqueadero(idSede);
+            DSGeoSena.ParqueaderoFullDataTable miParqueadero = 
+                CADParqueadero.GetDataByIdParqueadero(idParqueadero);
 
-            int idUbicacion = Convert.ToInt32(miCentro.Rows[0].ItemArray[4].ToString());
-            int idTelefono = Convert.ToInt32(miCentro.Rows[0].ItemArray[9].ToString());
+            int idUbicacion = Convert.ToInt32(miParqueadero.Rows[0].ItemArray[3].ToString());
+            int idTelefono = Convert.ToInt32(miParqueadero.Rows[0].ItemArray[10].ToString());
 
             CADUbicacion.UpdateUbicacion(direccionTextBox.Text, Convert.ToDouble(latitudTextBox.Text),
                 Convert.ToDouble(longuitudTextBox.Text), horarioTextBox.Text, idUbicacion);

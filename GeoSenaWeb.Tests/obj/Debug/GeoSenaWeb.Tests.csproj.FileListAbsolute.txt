@@ -56,3 +56,4 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\CAD.pdb
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\GMaps.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Recaptcha.dll

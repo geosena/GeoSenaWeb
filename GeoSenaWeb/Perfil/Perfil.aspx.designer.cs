@@ -7,117 +7,108 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace GeoSenaWeb.Sesion {
+namespace GeoSenaWeb.Perfil {
     
     
-    public partial class Index {
+    public partial class Perfil {
         
         /// <summary>
-        /// Control form1.
+        /// Control imagenImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Image imagenImage;
         
         /// <summary>
-        /// Control ingresoButton.
+        /// Control imagenFileUpload.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ingresoButton;
+        protected global::System.Web.UI.WebControls.FileUpload imagenFileUpload;
         
         /// <summary>
-        /// Control Image.
+        /// Control cambiarImagenButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image;
+        protected global::System.Web.UI.WebControls.Button cambiarImagenButton;
         
         /// <summary>
-        /// Control registroUsuarioButton.
+        /// Control LabelMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registroUsuarioButton;
+        protected global::System.Web.UI.WebControls.Label LabelMensaje;
         
         /// <summary>
-        /// Control panel.
+        /// Control usuarioLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel panel;
+        protected global::System.Web.UI.WebControls.Label usuarioLabel;
         
         /// <summary>
-        /// Control mensajeLabel.
+        /// Control nombreTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label mensajeLabel;
+        protected global::System.Web.UI.WebControls.TextBox nombreTextBox;
         
         /// <summary>
-        /// Control usuarioTextBox.
+        /// Control apellidosTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usuarioTextBox;
+        protected global::System.Web.UI.WebControls.TextBox apellidosTextBox;
         
         /// <summary>
-        /// Control contraseñaTextBox.
+        /// Control correoLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contraseñaTextBox;
+        protected global::System.Web.UI.WebControls.Label correoLabel;
         
         /// <summary>
-        /// Control recaptcha.
+        /// Control guardarCambiosButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Recaptcha.RecaptchaControl recaptcha;
+        protected global::System.Web.UI.WebControls.Button guardarCambiosButton;
         
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control eliminarCuentaButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.Button eliminarCuentaButton;
         
         /// <summary>
-        /// Control registroButton.
+        /// Control eliminarButton1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registroButton;
-        
-        /// <summary>
-        /// Control inicioButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button inicioButton;
+        protected global::System.Web.UI.WebControls.Button eliminarButton1;
     }
 }

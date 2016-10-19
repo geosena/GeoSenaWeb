@@ -75,7 +75,7 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Password:</td>
+                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Clave</td>
                         <td>
                             <asp:TextBox ID="passwordTextBox" runat="server" Height="26px" Width="450px" TextMode="Password"></asp:TextBox>
                         </td>

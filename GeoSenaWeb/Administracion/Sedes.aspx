@@ -92,7 +92,9 @@
             </td>
             <td class="text-right">Centro de Formación:</td>
             <td >
-                <asp:DropDownList ID="centroFormacionDropDownList" runat="server" Height="26px" Width="400px" DataSourceID="centrosSqlDataSource" DataTextField="Descripcion" DataValueField="IdCentroFormacion">
+                <asp:DropDownList ID="centroFormacionDropDownList" runat="server" Height="26px" Width="400px" 
+                    DataSourceID="centrosSqlDataSource" DataTextField="Descripcion" 
+                    DataValueField="IdCentroFormacion">
                 </asp:DropDownList>
             </td>
         </tr>

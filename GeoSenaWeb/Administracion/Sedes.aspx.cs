@@ -19,10 +19,11 @@ namespace GeoSenaWeb.Administracion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DibujarMapa("Bogota,Colombia", 13);
-
+            
             if (!IsPostBack)
             {
+                DibujarMapa("Bogota,Colombia", 13);
+
                 latitudTextBox.Text = string.Empty;
                 longuitudTextBox.Text = string.Empty;
             }

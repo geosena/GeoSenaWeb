@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="GeoSenaWeb.About" %>
+﻿<%@ Page Title="Acerca" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="GeoSenaWeb.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -76,15 +76,15 @@
                 <div class="aprendiz">
                     <h3>Aprendices</h3>
                     <figure>
-                        <img src="images/consultor.jpg" class="img-thumbnail" alt="Gustavo Adolfo Moreno Muñoz" width="75" height="75" />
+                        <img src="../Images/consultor.jpg" class="img-thumbnail" alt="Gustavo Adolfo Moreno Muñoz" width="75" height="75" />
                         <figcaption>Gustavo Adolfo Moreno Muñoz</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/consultor.jpg" class="img-thumbnail" alt="Nelly Patricia Rodríguez Camen" width="75" height="75" />
+                        <img src="../Images/consultor.jpg" class="img-thumbnail" alt="Nelly Patricia Rodríguez Camen" width="75" height="75" />
                         <figcaption>Nelly Patricia Rodríguez Camen</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/consultor.jpg" class="img-thumbnail" alt="William Andres Hurtado Torres" width="75" height="75" />
+                        <img src="../Images/consultor.jpg" class="img-thumbnail" alt="William Andres Hurtado Torres" width="75" height="75" />
                         <figcaption>William Andres Hurtado Torres</figcaption>
                     </figure>
                 </div>

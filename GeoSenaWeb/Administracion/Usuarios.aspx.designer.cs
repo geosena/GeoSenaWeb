@@ -7,199 +7,217 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace GeoSenaWeb {
+namespace GeoSenaWeb.Administracion {
     
     
-    public partial class SiteMaster {
+    public partial class Usuarios {
         
         /// <summary>
-        /// Control centrosLinkButton.
+        /// Control criterioUsuarioTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton centrosLinkButton;
+        protected global::System.Web.UI.WebControls.TextBox criterioUsuarioTextBox;
         
         /// <summary>
-        /// Control NavegacionLinkButton.
+        /// Control idTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton NavegacionLinkButton;
+        protected global::System.Web.UI.WebControls.TextBox idTextBox;
         
         /// <summary>
-        /// Control iniciarSesionLinkButton.
+        /// Control centrosDropDownList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton iniciarSesionLinkButton;
+        protected global::System.Web.UI.WebControls.DropDownList centrosDropDownList;
         
         /// <summary>
-        /// Control adminMenuLinkButton.
+        /// Control nombresTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton adminMenuLinkButton;
+        protected global::System.Web.UI.WebControls.TextBox nombresTextBox;
         
         /// <summary>
-        /// Control LinkButton11.
+        /// Control apellidosTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton11;
+        protected global::System.Web.UI.WebControls.TextBox apellidosTextBox;
         
         /// <summary>
-        /// Control LinkButton1.
+        /// Control claveLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.Label claveLabel;
         
         /// <summary>
-        /// Control LinkButton3.
+        /// Control passwordTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        protected global::System.Web.UI.WebControls.TextBox passwordTextBox;
         
         /// <summary>
-        /// Control LinkButton2.
+        /// Control identificacionTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.TextBox identificacionTextBox;
         
         /// <summary>
-        /// Control LinkButton4.
+        /// Control usuarioTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        protected global::System.Web.UI.WebControls.TextBox usuarioTextBox;
         
         /// <summary>
-        /// Control reporteMenuLinkButton.
+        /// Control correoTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton reporteMenuLinkButton;
+        protected global::System.Web.UI.WebControls.TextBox correoTextBox;
         
         /// <summary>
-        /// Control LinkButton6.
+        /// Control fechaModificacionTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton6;
+        protected global::System.Web.UI.WebControls.TextBox fechaModificacionTextBox;
         
         /// <summary>
-        /// Control LinkButton7.
+        /// Control MensajeLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton7;
+        protected global::System.Web.UI.WebControls.Label MensajeLabel;
         
         /// <summary>
-        /// Control LinkButton8.
+        /// Control consultarButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton8;
+        protected global::System.Web.UI.WebControls.Button consultarButton;
         
         /// <summary>
-        /// Control LinkButton10.
+        /// Control nuevoButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton10;
+        protected global::System.Web.UI.WebControls.Button nuevoButton;
         
         /// <summary>
-        /// Control LinkButton13.
+        /// Control modificarButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton13;
+        protected global::System.Web.UI.WebControls.Button modificarButton;
         
         /// <summary>
-        /// Control userMenuLinkButton.
+        /// Control eliminarButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton userMenuLinkButton;
+        protected global::System.Web.UI.WebControls.Button eliminarButton;
         
         /// <summary>
-        /// Control usuarioLabel.
+        /// Control cambiarClaveButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usuarioLabel;
+        protected global::System.Web.UI.WebControls.Button cambiarClaveButton;
         
         /// <summary>
-        /// Control perfilLinkButton.
+        /// Control limpiarButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton perfilLinkButton;
+        protected global::System.Web.UI.WebControls.Button limpiarButton;
         
         /// <summary>
-        /// Control cambioClaveLinkButton.
+        /// Control cancelarButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton cambioClaveLinkButton;
+        protected global::System.Web.UI.WebControls.Button cancelarButton;
         
         /// <summary>
-        /// Control cerrarSesionLinkButton.
+        /// Control usuarioGridView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton cerrarSesionLinkButton;
+        protected global::System.Web.UI.WebControls.GridView usuarioGridView;
         
         /// <summary>
-        /// Control MainContent.
+        /// Control usuarioSqlDataSource.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.SqlDataSource usuarioSqlDataSource;
+        
+        /// <summary>
+        /// Control centroSqlDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource centroSqlDataSource;
+        
+        /// <summary>
+        /// Control eliminarButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button eliminarButton1;
         
         /// <summary>
         /// Control panel.
@@ -218,15 +236,6 @@ namespace GeoSenaWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label mensajeClaveLabel;
-        
-        /// <summary>
-        /// Control claveAnteriorTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox claveAnteriorTextBox;
         
         /// <summary>
         /// Control claveTextBox.

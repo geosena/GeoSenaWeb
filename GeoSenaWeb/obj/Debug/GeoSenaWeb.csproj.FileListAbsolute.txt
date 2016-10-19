@@ -86,3 +86,4 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Google.Api.Maps.Service
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.pdb
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.xml
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GMaps.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Recaptcha.dll

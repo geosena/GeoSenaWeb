@@ -49,5 +49,10 @@ namespace CAD
         {
             return adaptadorFull.GetDataByIdParqueadero(IdParqueadero);
         }
+
+        public static DSGeoSena.ParqueaderoFullDataTable GetDataByIdSede(int IdSede)
+        {
+            return adaptadorFull.GetDataByIdSede(IdSede);
+        }
     }
 }

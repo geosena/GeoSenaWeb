@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="GeoSenaWeb.Sesion.Index" %>
-
+<%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,6 +10,17 @@
     <script src="../Scripts/jquery-3.1.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/jquery-ui-1.12.1.min.js"></script>
+    <style type="text/css">
+        .auto1 {
+            color: inherit;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 48px;
+            padding-bottom: 48px;
+            background-color: #e6e6e6;
+            min-height: 500px;
+        }
+    </style>
 
 </head>
 <body>
@@ -35,32 +46,37 @@
             </Scripts>
         </asp:ScriptManager>
         <div class="container body-content">
-            <div class="jumbotron">
+            <div class="jumbotron auto1">
                 <h1>Bienvenidos a GeoSena</h1>
-            </div>
-            <div class="col-lg-5">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Ingreso Sin Login</h3>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Ingreso Sin Login</h3>
+                            </div>
+                            <div class="panel-body">
+                                <asp:Button ID="ingresoButton" runat="server" Text="Ingresar" CssClass="btn btn-primary" OnClick="ingresoButton_Click" />
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <asp:Button ID="ingresoButton" runat="server" Text="Ingresar" CssClass="btn btn-primary" OnClick="ingresoButton_Click" />
+                    <div class="col-lg-4">
+                        <asp:Image ID="Image" runat="server" BorderStyle="Groove" Height="300px"
+                            ImageUrl="~/Images/logoSena.png" Width="280px" CssClass="img-thumbnail img-responsive" />
                     </div>
-                </div>
-
-            </div>
-            <div class="col-lg-5">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Ingreso Usuario Sena</h3>
-                    </div>
-                    <div class="panel-body">
-                        <input id="ingresoSenaButton" type="button" value="Ingresar" class="btn btn-info " data-toggle="modal" data-target="#myModal" />
-                        &nbsp;
+                    <div class="col-lg-4">
+                        <br />
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Ingreso Usuario Sena</h3>
+                            </div>
+                            <div class="panel-body">
+                                <input id="ingresoSenaButton" type="button" value="Ingresar" class="btn btn-info " data-toggle="modal" data-target="#myModal" />
+                                &nbsp;
                         <asp:Button ID="registroUsuarioButton" runat="server" Text="Registrarse" CssClass="btn btn-warning " OnClick="registroButton_Click" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -98,30 +114,45 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <span style="text-align:center;">
+                                        <recaptcha:RecaptchaControl
+                                        ID="recaptcha"
+                                        runat="server"
+                                        lang="it"
+                                        tabindex="0"
+                                        Theme="blackglass"
+                                        PublicKey="6LftHQkUAAAAAHUwAko9z-_7jR1cFbOlivjJ0w4M"
+                                        PrivateKey="6LftHQkUAAAAAIHDR-yyiYMVRBIbyC2Z5oXersjM"
+                                    />
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td></td>
                                 <td>
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <asp:Button ID="registroButton" runat="server" Visible="false" Text="Registrarse" CssClass="btn btn-primary btn-xs" OnClick="registroButton_Click" />
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="inicioButton" EventName="click" />
-                            </Triggers>
-                        </asp:UpdatePanel> 
+                                        <ContentTemplate>
+                                            <asp:Button ID="registroButton" runat="server" Visible="false" Text="Registrarse" CssClass="btn btn-primary btn-xs" OnClick="registroButton_Click" />
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="inicioButton" EventName="click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="cancel" class="btn btn-default"  data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="cancel" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                         <asp:Button ID="inicioButton" runat="server" Text="Ingresar" CssClass="btn btn-primary" OnClick="inicioButton_Click" />
-
                     </div>
-
                 </div>
-
             </div>
         </div>
+        
         <div class="container body-content">
             <hr />
             <footer>

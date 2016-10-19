@@ -4,9 +4,6 @@
 
     partial class DSGeoSena
     {
-        partial class ParqueaderoFullDataTable
-        {
-        }
     }
 }
 

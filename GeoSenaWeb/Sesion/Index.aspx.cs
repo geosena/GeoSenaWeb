@@ -33,8 +33,18 @@ namespace GeoSenaWeb.Sesion
                 return;
             }
 
-            bool administrador = CADUsuario.ExisteAdministrador(usuarioTextBox.Text, contraseñaTextBox.Text);
-            bool usuario = CADUsuario.ExisteUsuario(usuarioTextBox.Text, contraseñaTextBox.Text);
+            if (!recaptcha.IsValid)
+            {
+                mensajeLabel.Visible = true;
+                mensajeLabel.Text = "Recaptcha Incorrecto";
+                contraseñaTextBox.Focus();
+                return;
+            }
+
+            bool administrador = 
+                CADAdministrador.ExisteAdministrador(usuarioTextBox.Text, contraseñaTextBox.Text);
+            bool usuario = 
+                CADUsuario.ExisteUsuario(usuarioTextBox.Text, contraseñaTextBox.Text);
 
             if (!administrador && !usuario)
             {
@@ -47,6 +57,9 @@ namespace GeoSenaWeb.Sesion
 
             if (administrador)
             {
+                Session["DatosUsuarioAdministrador"] = 
+                    CADAdministrador.GetAdministradorByIdentificacionAndPassword(usuarioTextBox.Text, contraseñaTextBox.Text);
+
                 mensajeLabel.Visible = true;
                 Session["rol"] = "Administrador";
 
@@ -54,16 +67,15 @@ namespace GeoSenaWeb.Sesion
             }
             else
             {
-                mensajeLabel.Visible = true;
+                Session["DatosUsuarioUser"] =
+                    CADUsuario.GetUsuarioByNickAndPassword(usuarioTextBox.Text, contraseñaTextBox.Text);
 
+                mensajeLabel.Visible = true;
                 Session["rol"] = "Aprendiz Sena";
 
                 Response.Redirect("~/Default.aspx");
 
             }
-            
-
-            
         }
 
         protected void registroButton_Click(object sender, EventArgs e)
@@ -74,6 +86,8 @@ namespace GeoSenaWeb.Sesion
         protected void ingresoButton_Click(object sender, EventArgs e)
         {
             Session["rol"] = "";
+            Session["DatosUsuarioAdministrador"] = "";
+            Session["DatosUsuarioUser"] = "";
 
             Response.Redirect("~/Default.aspx");
         }
