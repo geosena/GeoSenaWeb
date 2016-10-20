@@ -11,6 +11,7 @@ using System.Web.Services;
 using System.Data.SqlClient;
 using System.Configuration;
 using Newtonsoft.Json;
+using GeoSenaWeb.Models;
 
 namespace GeoSenaWeb.Administracion
 {
@@ -124,8 +125,8 @@ namespace GeoSenaWeb.Administracion
                 return;
             }
 
-            DSGeoSena.ParqueaderoFullDataTable miParqueadero =
-                CADParqueadero.GetDataByIdParqueadero(Convert.ToInt32(idTextBox.Text));
+            DataSetGeoSena.ParqueaderoFullDataTable miParqueadero =
+                ParqueaderoFull.GetDataByIdParqueadero(Convert.ToInt32(idTextBox.Text));
 
             foreach (DataRow item in miParqueadero.Rows)
             {
@@ -168,12 +169,13 @@ namespace GeoSenaWeb.Administracion
             }
 
             DSGeoSena.ParqueaderoDataTable miParqueadero = CADParqueadero.GetData();
-            DSGeoSena.ParqueaderoFullDataTable miParqueaderoFull;
+
+            DataSetGeoSena.ParqueaderoFullDataTable miParqueaderoFull;
 
             foreach (DataRow item in miParqueadero.Rows)
             {
                 miParqueaderoFull =
-                    CADParqueadero.GetDataByIdParqueadero(Convert.ToInt32(item["IdParqueadero"].ToString()));
+                    ParqueaderoFull.GetDataByIdParqueadero(Convert.ToInt32(item["IdParqueadero"].ToString()));
 
                 if (descripcionTextBox.Text == miParqueaderoFull.Rows[0].ItemArray[1].ToString()
                     && direccionTextBox.Text == miParqueaderoFull.Rows[0].ItemArray[4].ToString())
@@ -284,8 +286,8 @@ namespace GeoSenaWeb.Administracion
             int idSede = Convert.ToInt32(sedeDropDownList.SelectedValue);
             int idTipoTelefono = Convert.ToInt32(tipoTelefono1DropDownList.SelectedValue);
 
-            DSGeoSena.ParqueaderoFullDataTable miParqueadero = 
-                CADParqueadero.GetDataByIdParqueadero(idParqueadero);
+            DataSetGeoSena.ParqueaderoFullDataTable miParqueadero = 
+                ParqueaderoFull.GetDataByIdParqueadero(idParqueadero);
 
             int idUbicacion = Convert.ToInt32(miParqueadero.Rows[0].ItemArray[3].ToString());
             int idTelefono = Convert.ToInt32(miParqueadero.Rows[0].ItemArray[10].ToString());
@@ -312,7 +314,8 @@ namespace GeoSenaWeb.Administracion
         {
             int idParqueadero = Convert.ToInt32(idTextBox.Text);
 
-            DSGeoSena.ParqueaderoFullDataTable miCentro = CADParqueadero.GetDataByIdParqueadero(idParqueadero);
+            DataSetGeoSena.ParqueaderoFullDataTable miCentro = 
+                ParqueaderoFull.GetDataByIdParqueadero(idParqueadero);
 
             int idUbicacion = Convert.ToInt32(miCentro.Rows[0].ItemArray[4].ToString());
             int idTelefono = Convert.ToInt32(miCentro.Rows[0].ItemArray[9].ToString());

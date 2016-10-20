@@ -2,9 +2,11 @@
 <xs:schema id="DSGeoSena" targetNamespace="http://tempuri.org/DSGeoSena.xsd" xmlns:mstns="http://tempuri.org/DSGeoSena.xsd" xmlns="http://tempuri.org/DSGeoSena.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GeoSenaDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GeoSenaDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CAD.Properties.Settings.GlobalReference.Default.GeoSenaDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GeoSenaDBConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="GeoSenaDBConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CAD.Properties.Settings.GlobalReference.Default.GeoSenaDBConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GeoSenaDBConnectionStringAzure" IsAppSettingsProperty="true" Modifier="Assembly" Name="GeoSenaDBConnectionStringAzure (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CAD.Properties.Settings.GlobalReference.Default.GeoSenaDBConnectionStringAzure" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AdministradorTableAdapter" GeneratorDataComponentClassName="AdministradorTableAdapter" Name="Administrador" UserDataComponentName="AdministradorTableAdapter">
@@ -593,87 +595,6 @@ SELECT IdUbicacion, Direccion, Latitud, Longuitud, Horario FROM Ubicacion WHERE 
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SedeFullTableAdapter" GeneratorDataComponentClassName="SedeFullTableAdapter" Name="SedeFull" UserDataComponentName="SedeFullTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="GeoSenaDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Sede.IdSede, Sede.Descripcion AS Sede, 
-Sede.IdCentroFormacion, CentroFormacion.Descripcion AS CentroFormacion, 
-Sede.IdUbicacion, Ubicacion.Direccion, Ubicacion.Latitud, 
- Ubicacion.Longuitud, Ubicacion.Horario, 
- Telefono.IdTelefono, Telefono.Telefono, 
- Telefono.IdTipoTelefono, TipoTelefono.Descripcion AS TipoTelefono
-FROM TipoTelefono INNER JOIN
- Telefono ON TipoTelefono.IdTipoTelefono = Telefono.IdTipoTelefono INNER JOIN
- Ubicacion ON Telefono.IdUbicacion = Ubicacion.IdUbicacion INNER JOIN
- CentroFormacion INNER JOIN
- Sede ON CentroFormacion.IdCentroFormacion = Sede.IdCentroFormacion ON Ubicacion.IdUbicacion = Sede.IdUbicacion</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="IdSede" DataSetColumn="IdSede" />
-              <Mapping SourceColumn="Sede" DataSetColumn="Sede" />
-              <Mapping SourceColumn="IdCentroFormacion" DataSetColumn="IdCentroFormacion" />
-              <Mapping SourceColumn="CentroFormacion" DataSetColumn="CentroFormacion" />
-              <Mapping SourceColumn="IdUbicacion" DataSetColumn="IdUbicacion" />
-              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
-              <Mapping SourceColumn="Latitud" DataSetColumn="Latitud" />
-              <Mapping SourceColumn="Longuitud" DataSetColumn="Longuitud" />
-              <Mapping SourceColumn="Horario" DataSetColumn="Horario" />
-              <Mapping SourceColumn="IdTelefono" DataSetColumn="IdTelefono" />
-              <Mapping SourceColumn="Telefono" DataSetColumn="Telefono" />
-              <Mapping SourceColumn="IdTipoTelefono" DataSetColumn="IdTipoTelefono" />
-              <Mapping SourceColumn="TipoTelefono" DataSetColumn="TipoTelefono" />
-            </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="GeoSenaDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIdCentroFormacion" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdCentroFormacion" GeneratorSourceName="FillByIdCentroFormacion" GetMethodModifier="Public" GetMethodName="GetDataByIdCentroFormacion" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdCentroFormacion" UserSourceName="FillByIdCentroFormacion">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Sede.IdSede, Sede.Descripcion AS Sede, 
-Sede.IdCentroFormacion, CentroFormacion.Descripcion AS CentroFormacion, 
-Sede.IdUbicacion, Ubicacion.Direccion, Ubicacion.Latitud, 
- Ubicacion.Longuitud, Ubicacion.Horario, 
- Telefono.IdTelefono, Telefono.Telefono, 
- Telefono.IdTipoTelefono, TipoTelefono.Descripcion AS TipoTelefono
-FROM TipoTelefono INNER JOIN
- Telefono ON TipoTelefono.IdTipoTelefono = Telefono.IdTipoTelefono INNER JOIN
- Ubicacion ON Telefono.IdUbicacion = Ubicacion.IdUbicacion INNER JOIN
- CentroFormacion INNER JOIN
- Sede ON CentroFormacion.IdCentroFormacion = Sede.IdCentroFormacion ON Ubicacion.IdUbicacion = Sede.IdUbicacion
- WHERE Sede.IdCentroFormacion = @IdCentroFormacion</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdCentroFormacion" ColumnName="IdCentroFormacion" DataSourceName="GeoSenaDB.dbo.Sede" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdCentroFormacion" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdCentroFormacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GeoSenaDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIdSede" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdSede" GeneratorSourceName="FillByIdSede" GetMethodModifier="Public" GetMethodName="GetDataByIdSede" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdSede" UserSourceName="FillByIdSede">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Sede.IdSede, Sede.Descripcion AS Sede, 
-Sede.IdCentroFormacion, CentroFormacion.Descripcion AS CentroFormacion, 
-Sede.IdUbicacion, Ubicacion.Direccion, Ubicacion.Latitud, 
- Ubicacion.Longuitud, Ubicacion.Horario, 
- Telefono.IdTelefono, Telefono.Telefono, 
- Telefono.IdTipoTelefono, TipoTelefono.Descripcion AS TipoTelefono
-FROM TipoTelefono INNER JOIN
- Telefono ON TipoTelefono.IdTipoTelefono = Telefono.IdTipoTelefono INNER JOIN
- Ubicacion ON Telefono.IdUbicacion = Ubicacion.IdUbicacion INNER JOIN
- CentroFormacion INNER JOIN
- Sede ON CentroFormacion.IdCentroFormacion = Sede.IdCentroFormacion ON Ubicacion.IdUbicacion = Sede.IdUbicacion
- WHERE Sede.IdSede = @IdSede</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdSede" ColumnName="IdSede" DataSourceName="GeoSenaDB.dbo.Sede" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdSede" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdSede" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TipoTelefonoTableAdapter" GeneratorDataComponentClassName="TipoTelefonoTableAdapter" Name="TipoTelefono" UserDataComponentName="TipoTelefonoTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="GeoSenaDBConnectionString (Settings)" DbObjectName="GeoSenaDB.dbo.TipoTelefono" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -720,88 +641,6 @@ SELECT IdTipoTelefono, Descripcion FROM TipoTelefono WHERE (IdTipoTelefono = @Id
               <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
             </Mappings>
             <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ParqueaderoFullTableAdapter" GeneratorDataComponentClassName="ParqueaderoFullTableAdapter" Name="ParqueaderoFull" UserDataComponentName="ParqueaderoFullTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="GeoSenaDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Parqueadero.IdParqueadero, Parqueadero.Descripcion AS Parqueadero, 
-Parqueadero.Cupo, Parqueadero.IdUbicacion, Ubicacion.Direccion, Ubicacion.Latitud, Ubicacion.Longuitud, 
- Ubicacion.Horario, 
- Parqueadero.IdSede, Sede.Descripcion AS Sede, 
- Telefono.IdTelefono, Telefono.Telefono, 
- Telefono.IdTipoTelefono, TipoTelefono.Descripcion As TipoTelefono
-FROM Parqueadero INNER JOIN
- Sede ON Parqueadero.IdSede = Sede.IdSede INNER JOIN
- Ubicacion ON Parqueadero.IdUbicacion = Ubicacion.IdUbicacion INNER JOIN
- Telefono ON Ubicacion.IdUbicacion = Telefono.IdUbicacion INNER JOIN
- TipoTelefono ON Telefono.IdTipoTelefono = TipoTelefono.IdTipoTelefono</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="IdParqueadero" DataSetColumn="IdParqueadero" />
-              <Mapping SourceColumn="Parqueadero" DataSetColumn="Parqueadero" />
-              <Mapping SourceColumn="Cupo" DataSetColumn="Cupo" />
-              <Mapping SourceColumn="IdUbicacion" DataSetColumn="IdUbicacion" />
-              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
-              <Mapping SourceColumn="Latitud" DataSetColumn="Latitud" />
-              <Mapping SourceColumn="Longuitud" DataSetColumn="Longuitud" />
-              <Mapping SourceColumn="Horario" DataSetColumn="Horario" />
-              <Mapping SourceColumn="IdSede" DataSetColumn="IdSede" />
-              <Mapping SourceColumn="Sede" DataSetColumn="Sede" />
-              <Mapping SourceColumn="IdTelefono" DataSetColumn="IdTelefono" />
-              <Mapping SourceColumn="Telefono" DataSetColumn="Telefono" />
-              <Mapping SourceColumn="IdTipoTelefono" DataSetColumn="IdTipoTelefono" />
-              <Mapping SourceColumn="TipoTelefono" DataSetColumn="TipoTelefono" />
-            </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="GeoSenaDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIdParqueadero" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdParqueadero" GeneratorSourceName="FillByIdParqueadero" GetMethodModifier="Public" GetMethodName="GetDataByIdParqueadero" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdParqueadero" UserSourceName="FillByIdParqueadero">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Parqueadero.IdParqueadero, Parqueadero.Descripcion AS Parqueadero, 
-Parqueadero.Cupo, Parqueadero.IdUbicacion, Ubicacion.Direccion, Ubicacion.Latitud, Ubicacion.Longuitud, 
- Ubicacion.Horario, 
- Parqueadero.IdSede, Sede.Descripcion AS Sede, 
- Telefono.IdTelefono, Telefono.Telefono, 
- Telefono.IdTipoTelefono, TipoTelefono.Descripcion As TipoTelefono
-FROM Parqueadero INNER JOIN
- Sede ON Parqueadero.IdSede = Sede.IdSede INNER JOIN
- Ubicacion ON Parqueadero.IdUbicacion = Ubicacion.IdUbicacion INNER JOIN
- Telefono ON Ubicacion.IdUbicacion = Telefono.IdUbicacion INNER JOIN
- TipoTelefono ON Telefono.IdTipoTelefono = TipoTelefono.IdTipoTelefono
- WHERE Parqueadero.IdParqueadero = @IdParqueadero</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdParqueadero" ColumnName="IdParqueadero" DataSourceName="GeoSenaDB.dbo.Parqueadero" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdParqueadero" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdParqueadero" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GeoSenaDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIdSede" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdSede" GeneratorSourceName="FillByIdSede" GetMethodModifier="Public" GetMethodName="GetDataByIdSede" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdSede" UserSourceName="FillByIdSede">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Parqueadero.IdParqueadero, Parqueadero.Descripcion AS Parqueadero, 
-Parqueadero.Cupo, Parqueadero.IdUbicacion, Ubicacion.Direccion, Ubicacion.Latitud, Ubicacion.Longuitud, 
- Ubicacion.Horario, 
- Parqueadero.IdSede, Sede.Descripcion AS Sede, 
- Telefono.IdTelefono, Telefono.Telefono, 
- Telefono.IdTipoTelefono, TipoTelefono.Descripcion As TipoTelefono
-FROM Parqueadero INNER JOIN
- Sede ON Parqueadero.IdSede = Sede.IdSede INNER JOIN
- Ubicacion ON Parqueadero.IdUbicacion = Ubicacion.IdUbicacion INNER JOIN
- Telefono ON Ubicacion.IdUbicacion = Telefono.IdUbicacion INNER JOIN
- TipoTelefono ON Telefono.IdTipoTelefono = TipoTelefono.IdTipoTelefono
-WHERE Parqueadero.IdSede = @IdSede</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdSede" ColumnName="IdSede" DataSourceName="GeoSenaDB.dbo.Parqueadero" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdSede" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdSede" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ParqueaderoTableAdapter" GeneratorDataComponentClassName="ParqueaderoTableAdapter" Name="Parqueadero" UserDataComponentName="ParqueaderoTableAdapter">
             <MainSource>
@@ -1129,7 +968,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
   <xs:element name="DSGeoSena" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSGeoSena" msprop:Generator_UserDSName="DSGeoSena">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Administrador" msprop:Generator_TableClassName="AdministradorDataTable" msprop:Generator_TableVarName="tableAdministrador" msprop:Generator_RowChangedName="AdministradorRowChanged" msprop:Generator_TablePropName="Administrador" msprop:Generator_RowDeletingName="AdministradorRowDeleting" msprop:Generator_RowChangingName="AdministradorRowChanging" msprop:Generator_RowEvHandlerName="AdministradorRowChangeEventHandler" msprop:Generator_RowDeletedName="AdministradorRowDeleted" msprop:Generator_RowClassName="AdministradorRow" msprop:Generator_UserTableName="Administrador" msprop:Generator_RowEvArgName="AdministradorRowChangeEvent">
+        <xs:element name="Administrador" msprop:Generator_TableClassName="AdministradorDataTable" msprop:Generator_TableVarName="tableAdministrador" msprop:Generator_TablePropName="Administrador" msprop:Generator_RowDeletingName="AdministradorRowDeleting" msprop:Generator_RowChangingName="AdministradorRowChanging" msprop:Generator_RowEvHandlerName="AdministradorRowChangeEventHandler" msprop:Generator_RowDeletedName="AdministradorRowDeleted" msprop:Generator_UserTableName="Administrador" msprop:Generator_RowChangedName="AdministradorRowChanged" msprop:Generator_RowEvArgName="AdministradorRowChangeEvent" msprop:Generator_RowClassName="AdministradorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdAdministrador" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdAdministrador" msprop:Generator_ColumnPropNameInRow="IdAdministrador" msprop:Generator_ColumnPropNameInTable="IdAdministradorColumn" msprop:Generator_UserColumnName="IdAdministrador" type="xs:int" />
@@ -1171,7 +1010,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Telefono" msprop:Generator_TableClassName="TelefonoDataTable" msprop:Generator_TableVarName="tableTelefono" msprop:Generator_RowChangedName="TelefonoRowChanged" msprop:Generator_TablePropName="Telefono" msprop:Generator_RowDeletingName="TelefonoRowDeleting" msprop:Generator_RowChangingName="TelefonoRowChanging" msprop:Generator_RowEvHandlerName="TelefonoRowChangeEventHandler" msprop:Generator_RowDeletedName="TelefonoRowDeleted" msprop:Generator_RowClassName="TelefonoRow" msprop:Generator_UserTableName="Telefono" msprop:Generator_RowEvArgName="TelefonoRowChangeEvent">
+        <xs:element name="Telefono" msprop:Generator_TableClassName="TelefonoDataTable" msprop:Generator_TableVarName="tableTelefono" msprop:Generator_TablePropName="Telefono" msprop:Generator_RowDeletingName="TelefonoRowDeleting" msprop:Generator_RowChangingName="TelefonoRowChanging" msprop:Generator_RowEvHandlerName="TelefonoRowChangeEventHandler" msprop:Generator_RowDeletedName="TelefonoRowDeleted" msprop:Generator_UserTableName="Telefono" msprop:Generator_RowChangedName="TelefonoRowChanged" msprop:Generator_RowEvArgName="TelefonoRowChangeEvent" msprop:Generator_RowClassName="TelefonoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdTelefono" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdTelefono" msprop:Generator_ColumnPropNameInRow="IdTelefono" msprop:Generator_ColumnPropNameInTable="IdTelefonoColumn" msprop:Generator_UserColumnName="IdTelefono" type="xs:int" />
@@ -1187,7 +1026,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Sede" msprop:Generator_TableClassName="SedeDataTable" msprop:Generator_TableVarName="tableSede" msprop:Generator_RowChangedName="SedeRowChanged" msprop:Generator_TablePropName="Sede" msprop:Generator_RowDeletingName="SedeRowDeleting" msprop:Generator_RowChangingName="SedeRowChanging" msprop:Generator_RowEvHandlerName="SedeRowChangeEventHandler" msprop:Generator_RowDeletedName="SedeRowDeleted" msprop:Generator_RowClassName="SedeRow" msprop:Generator_UserTableName="Sede" msprop:Generator_RowEvArgName="SedeRowChangeEvent">
+        <xs:element name="Sede" msprop:Generator_TableClassName="SedeDataTable" msprop:Generator_TableVarName="tableSede" msprop:Generator_TablePropName="Sede" msprop:Generator_RowDeletingName="SedeRowDeleting" msprop:Generator_RowChangingName="SedeRowChanging" msprop:Generator_RowEvHandlerName="SedeRowChangeEventHandler" msprop:Generator_RowDeletedName="SedeRowDeleted" msprop:Generator_UserTableName="Sede" msprop:Generator_RowChangedName="SedeRowChanged" msprop:Generator_RowEvArgName="SedeRowChangeEvent" msprop:Generator_RowClassName="SedeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdSede" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdSede" msprop:Generator_ColumnPropNameInRow="IdSede" msprop:Generator_ColumnPropNameInTable="IdSedeColumn" msprop:Generator_UserColumnName="IdSede" type="xs:int" />
@@ -1203,7 +1042,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CentroFormacion" msprop:Generator_TableClassName="CentroFormacionDataTable" msprop:Generator_TableVarName="tableCentroFormacion" msprop:Generator_RowChangedName="CentroFormacionRowChanged" msprop:Generator_TablePropName="CentroFormacion" msprop:Generator_RowDeletingName="CentroFormacionRowDeleting" msprop:Generator_RowChangingName="CentroFormacionRowChanging" msprop:Generator_RowEvHandlerName="CentroFormacionRowChangeEventHandler" msprop:Generator_RowDeletedName="CentroFormacionRowDeleted" msprop:Generator_RowClassName="CentroFormacionRow" msprop:Generator_UserTableName="CentroFormacion" msprop:Generator_RowEvArgName="CentroFormacionRowChangeEvent">
+        <xs:element name="CentroFormacion" msprop:Generator_TableClassName="CentroFormacionDataTable" msprop:Generator_TableVarName="tableCentroFormacion" msprop:Generator_TablePropName="CentroFormacion" msprop:Generator_RowDeletingName="CentroFormacionRowDeleting" msprop:Generator_RowChangingName="CentroFormacionRowChanging" msprop:Generator_RowEvHandlerName="CentroFormacionRowChangeEventHandler" msprop:Generator_RowDeletedName="CentroFormacionRowDeleted" msprop:Generator_UserTableName="CentroFormacion" msprop:Generator_RowChangedName="CentroFormacionRowChanged" msprop:Generator_RowEvArgName="CentroFormacionRowChangeEvent" msprop:Generator_RowClassName="CentroFormacionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdCentroFormacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdCentroFormacion" msprop:Generator_ColumnPropNameInRow="IdCentroFormacion" msprop:Generator_ColumnPropNameInTable="IdCentroFormacionColumn" msprop:Generator_UserColumnName="IdCentroFormacion" type="xs:int" />
@@ -1224,7 +1063,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Ubicacion" msprop:Generator_TableClassName="UbicacionDataTable" msprop:Generator_TableVarName="tableUbicacion" msprop:Generator_TablePropName="Ubicacion" msprop:Generator_RowDeletingName="UbicacionRowDeleting" msprop:Generator_RowChangingName="UbicacionRowChanging" msprop:Generator_RowEvHandlerName="UbicacionRowChangeEventHandler" msprop:Generator_RowDeletedName="UbicacionRowDeleted" msprop:Generator_UserTableName="Ubicacion" msprop:Generator_RowChangedName="UbicacionRowChanged" msprop:Generator_RowEvArgName="UbicacionRowChangeEvent" msprop:Generator_RowClassName="UbicacionRow">
+        <xs:element name="Ubicacion" msprop:Generator_TableClassName="UbicacionDataTable" msprop:Generator_TableVarName="tableUbicacion" msprop:Generator_RowChangedName="UbicacionRowChanged" msprop:Generator_TablePropName="Ubicacion" msprop:Generator_RowDeletingName="UbicacionRowDeleting" msprop:Generator_RowChangingName="UbicacionRowChanging" msprop:Generator_RowEvHandlerName="UbicacionRowChangeEventHandler" msprop:Generator_RowDeletedName="UbicacionRowDeleted" msprop:Generator_RowClassName="UbicacionRow" msprop:Generator_UserTableName="Ubicacion" msprop:Generator_RowEvArgName="UbicacionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdUbicacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdUbicacion" msprop:Generator_ColumnPropNameInRow="IdUbicacion" msprop:Generator_ColumnPropNameInTable="IdUbicacionColumn" msprop:Generator_UserColumnName="IdUbicacion" type="xs:int" />
@@ -1247,62 +1086,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SedeFull" msprop:Generator_TableClassName="SedeFullDataTable" msprop:Generator_TableVarName="tableSedeFull" msprop:Generator_TablePropName="SedeFull" msprop:Generator_RowDeletingName="SedeFullRowDeleting" msprop:Generator_RowChangingName="SedeFullRowChanging" msprop:Generator_RowEvHandlerName="SedeFullRowChangeEventHandler" msprop:Generator_RowDeletedName="SedeFullRowDeleted" msprop:Generator_UserTableName="SedeFull" msprop:Generator_RowChangedName="SedeFullRowChanged" msprop:Generator_RowEvArgName="SedeFullRowChangeEvent" msprop:Generator_RowClassName="SedeFullRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="IdSede" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdSede" msprop:Generator_ColumnPropNameInRow="IdSede" msprop:Generator_ColumnPropNameInTable="IdSedeColumn" msprop:Generator_UserColumnName="IdSede" type="xs:int" />
-              <xs:element name="Sede" msprop:Generator_ColumnVarNameInTable="columnSede" msprop:Generator_ColumnPropNameInRow="Sede" msprop:Generator_ColumnPropNameInTable="SedeColumn" msprop:Generator_UserColumnName="Sede">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="150" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdCentroFormacion" msprop:Generator_ColumnVarNameInTable="columnIdCentroFormacion" msprop:Generator_ColumnPropNameInRow="IdCentroFormacion" msprop:Generator_ColumnPropNameInTable="IdCentroFormacionColumn" msprop:Generator_UserColumnName="IdCentroFormacion" type="xs:int" />
-              <xs:element name="CentroFormacion" msprop:Generator_ColumnVarNameInTable="columnCentroFormacion" msprop:Generator_ColumnPropNameInRow="CentroFormacion" msprop:Generator_ColumnPropNameInTable="CentroFormacionColumn" msprop:Generator_UserColumnName="CentroFormacion">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="150" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdUbicacion" msprop:Generator_ColumnVarNameInTable="columnIdUbicacion" msprop:Generator_ColumnPropNameInRow="IdUbicacion" msprop:Generator_ColumnPropNameInTable="IdUbicacionColumn" msprop:Generator_UserColumnName="IdUbicacion" type="xs:int" />
-              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Latitud" msprop:Generator_ColumnVarNameInTable="columnLatitud" msprop:Generator_ColumnPropNameInRow="Latitud" msprop:Generator_ColumnPropNameInTable="LatitudColumn" msprop:Generator_UserColumnName="Latitud" type="xs:double" />
-              <xs:element name="Longuitud" msprop:Generator_ColumnVarNameInTable="columnLonguitud" msprop:Generator_ColumnPropNameInRow="Longuitud" msprop:Generator_ColumnPropNameInTable="LonguitudColumn" msprop:Generator_UserColumnName="Longuitud" type="xs:double" />
-              <xs:element name="Horario" msprop:Generator_ColumnVarNameInTable="columnHorario" msprop:Generator_ColumnPropNameInRow="Horario" msprop:Generator_ColumnPropNameInTable="HorarioColumn" msprop:Generator_UserColumnName="Horario">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="300" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdTelefono" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdTelefono" msprop:Generator_ColumnPropNameInRow="IdTelefono" msprop:Generator_ColumnPropNameInTable="IdTelefonoColumn" msprop:Generator_UserColumnName="IdTelefono" type="xs:int" />
-              <xs:element name="Telefono" msprop:Generator_ColumnVarNameInTable="columnTelefono" msprop:Generator_ColumnPropNameInRow="Telefono" msprop:Generator_ColumnPropNameInTable="TelefonoColumn" msprop:Generator_UserColumnName="Telefono">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdTipoTelefono" msprop:Generator_ColumnVarNameInTable="columnIdTipoTelefono" msprop:Generator_ColumnPropNameInRow="IdTipoTelefono" msprop:Generator_ColumnPropNameInTable="IdTipoTelefonoColumn" msprop:Generator_UserColumnName="IdTipoTelefono" type="xs:int" />
-              <xs:element name="TipoTelefono" msprop:Generator_ColumnVarNameInTable="columnTipoTelefono" msprop:Generator_ColumnPropNameInRow="TipoTelefono" msprop:Generator_ColumnPropNameInTable="TipoTelefonoColumn" msprop:Generator_UserColumnName="TipoTelefono">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="TipoTelefono" msprop:Generator_TableClassName="TipoTelefonoDataTable" msprop:Generator_TableVarName="tableTipoTelefono" msprop:Generator_TablePropName="TipoTelefono" msprop:Generator_RowDeletingName="TipoTelefonoRowDeleting" msprop:Generator_RowChangingName="TipoTelefonoRowChanging" msprop:Generator_RowEvHandlerName="TipoTelefonoRowChangeEventHandler" msprop:Generator_RowDeletedName="TipoTelefonoRowDeleted" msprop:Generator_UserTableName="TipoTelefono" msprop:Generator_RowChangedName="TipoTelefonoRowChanged" msprop:Generator_RowEvArgName="TipoTelefonoRowChangeEvent" msprop:Generator_RowClassName="TipoTelefonoRow">
+        <xs:element name="TipoTelefono" msprop:Generator_TableClassName="TipoTelefonoDataTable" msprop:Generator_TableVarName="tableTipoTelefono" msprop:Generator_RowChangedName="TipoTelefonoRowChanged" msprop:Generator_TablePropName="TipoTelefono" msprop:Generator_RowDeletingName="TipoTelefonoRowDeleting" msprop:Generator_RowChangingName="TipoTelefonoRowChanging" msprop:Generator_RowEvHandlerName="TipoTelefonoRowChangeEventHandler" msprop:Generator_RowDeletedName="TipoTelefonoRowDeleted" msprop:Generator_RowClassName="TipoTelefonoRow" msprop:Generator_UserTableName="TipoTelefono" msprop:Generator_RowEvArgName="TipoTelefonoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdTipoTelefono" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdTipoTelefono" msprop:Generator_ColumnPropNameInRow="IdTipoTelefono" msprop:Generator_ColumnPropNameInTable="IdTipoTelefonoColumn" msprop:Generator_UserColumnName="IdTipoTelefono" type="xs:int" />
@@ -1316,63 +1100,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ParqueaderoFull" msprop:Generator_TableClassName="ParqueaderoFullDataTable" msprop:Generator_TableVarName="tableParqueaderoFull" msprop:Generator_TablePropName="ParqueaderoFull" msprop:Generator_RowDeletingName="ParqueaderoFullRowDeleting" msprop:Generator_RowChangingName="ParqueaderoFullRowChanging" msprop:Generator_RowEvHandlerName="ParqueaderoFullRowChangeEventHandler" msprop:Generator_RowDeletedName="ParqueaderoFullRowDeleted" msprop:Generator_UserTableName="ParqueaderoFull" msprop:Generator_RowChangedName="ParqueaderoFullRowChanged" msprop:Generator_RowEvArgName="ParqueaderoFullRowChangeEvent" msprop:Generator_RowClassName="ParqueaderoFullRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="IdParqueadero" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdParqueadero" msprop:Generator_ColumnPropNameInRow="IdParqueadero" msprop:Generator_ColumnPropNameInTable="IdParqueaderoColumn" msprop:Generator_UserColumnName="IdParqueadero" type="xs:int" />
-              <xs:element name="Parqueadero" msprop:Generator_ColumnVarNameInTable="columnParqueadero" msprop:Generator_ColumnPropNameInRow="Parqueadero" msprop:Generator_ColumnPropNameInTable="ParqueaderoColumn" msprop:Generator_UserColumnName="Parqueadero">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Cupo" msprop:Generator_ColumnVarNameInTable="columnCupo" msprop:Generator_ColumnPropNameInRow="Cupo" msprop:Generator_ColumnPropNameInTable="CupoColumn" msprop:Generator_UserColumnName="Cupo" type="xs:double" />
-              <xs:element name="IdUbicacion" msprop:Generator_ColumnVarNameInTable="columnIdUbicacion" msprop:Generator_ColumnPropNameInRow="IdUbicacion" msprop:Generator_ColumnPropNameInTable="IdUbicacionColumn" msprop:Generator_UserColumnName="IdUbicacion" type="xs:int" />
-              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Latitud" msprop:Generator_ColumnVarNameInTable="columnLatitud" msprop:Generator_ColumnPropNameInRow="Latitud" msprop:Generator_ColumnPropNameInTable="LatitudColumn" msprop:Generator_UserColumnName="Latitud" type="xs:double" />
-              <xs:element name="Longuitud" msprop:Generator_ColumnVarNameInTable="columnLonguitud" msprop:Generator_ColumnPropNameInRow="Longuitud" msprop:Generator_ColumnPropNameInTable="LonguitudColumn" msprop:Generator_UserColumnName="Longuitud" type="xs:double" />
-              <xs:element name="Horario" msprop:Generator_ColumnVarNameInTable="columnHorario" msprop:Generator_ColumnPropNameInRow="Horario" msprop:Generator_ColumnPropNameInTable="HorarioColumn" msprop:Generator_UserColumnName="Horario">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="300" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdSede" msprop:Generator_ColumnVarNameInTable="columnIdSede" msprop:Generator_ColumnPropNameInRow="IdSede" msprop:Generator_ColumnPropNameInTable="IdSedeColumn" msprop:Generator_UserColumnName="IdSede" type="xs:int" />
-              <xs:element name="Sede" msprop:Generator_ColumnVarNameInTable="columnSede" msprop:Generator_ColumnPropNameInRow="Sede" msprop:Generator_ColumnPropNameInTable="SedeColumn" msprop:Generator_UserColumnName="Sede">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="150" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdTelefono" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdTelefono" msprop:Generator_ColumnPropNameInRow="IdTelefono" msprop:Generator_ColumnPropNameInTable="IdTelefonoColumn" msprop:Generator_UserColumnName="IdTelefono" type="xs:int" />
-              <xs:element name="Telefono" msprop:Generator_ColumnVarNameInTable="columnTelefono" msprop:Generator_ColumnPropNameInRow="Telefono" msprop:Generator_ColumnPropNameInTable="TelefonoColumn" msprop:Generator_UserColumnName="Telefono">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdTipoTelefono" msprop:Generator_ColumnVarNameInTable="columnIdTipoTelefono" msprop:Generator_ColumnPropNameInRow="IdTipoTelefono" msprop:Generator_ColumnPropNameInTable="IdTipoTelefonoColumn" msprop:Generator_UserColumnName="IdTipoTelefono" type="xs:int" />
-              <xs:element name="TipoTelefono" msprop:Generator_ColumnVarNameInTable="columnTipoTelefono" msprop:Generator_ColumnPropNameInRow="TipoTelefono" msprop:Generator_ColumnPropNameInTable="TipoTelefonoColumn" msprop:Generator_UserColumnName="TipoTelefono">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Parqueadero" msprop:Generator_TableClassName="ParqueaderoDataTable" msprop:Generator_TableVarName="tableParqueadero" msprop:Generator_RowChangedName="ParqueaderoRowChanged" msprop:Generator_TablePropName="Parqueadero" msprop:Generator_RowDeletingName="ParqueaderoRowDeleting" msprop:Generator_RowChangingName="ParqueaderoRowChanging" msprop:Generator_RowEvHandlerName="ParqueaderoRowChangeEventHandler" msprop:Generator_RowDeletedName="ParqueaderoRowDeleted" msprop:Generator_RowClassName="ParqueaderoRow" msprop:Generator_UserTableName="Parqueadero" msprop:Generator_RowEvArgName="ParqueaderoRowChangeEvent">
+        <xs:element name="Parqueadero" msprop:Generator_TableClassName="ParqueaderoDataTable" msprop:Generator_TableVarName="tableParqueadero" msprop:Generator_TablePropName="Parqueadero" msprop:Generator_RowDeletingName="ParqueaderoRowDeleting" msprop:Generator_RowChangingName="ParqueaderoRowChanging" msprop:Generator_RowEvHandlerName="ParqueaderoRowChangeEventHandler" msprop:Generator_RowDeletedName="ParqueaderoRowDeleted" msprop:Generator_UserTableName="Parqueadero" msprop:Generator_RowChangedName="ParqueaderoRowChanged" msprop:Generator_RowEvArgName="ParqueaderoRowChangeEvent" msprop:Generator_RowClassName="ParqueaderoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdParqueadero" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdParqueadero" msprop:Generator_ColumnPropNameInRow="IdParqueadero" msprop:Generator_ColumnPropNameInTable="IdParqueaderoColumn" msprop:Generator_UserColumnName="IdParqueadero" type="xs:int" />
@@ -1389,7 +1117,7 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent" msprop:Generator_RowClassName="UsuarioRow">
+        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_RowClassName="UsuarioRow" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdUsuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdUsuario" msprop:Generator_ColumnPropNameInRow="IdUsuario" msprop:Generator_ColumnPropNameInTable="IdUsuarioColumn" msprop:Generator_UserColumnName="IdUsuario" type="xs:int" />
@@ -1478,16 +1206,13 @@ SELECT IdUsuario, Apellidos, Nombres, Identificacion, Nick, Password, Correo, Id
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Sede_CentroFormacion" msdata:parent="CentroFormacion" msdata:child="Sede" msdata:parentkey="IdCentroFormacion" msdata:childkey="IdCentroFormacion" msprop:Generator_UserChildTable="Sede" msprop:Generator_ChildPropName="GetSedeRows" msprop:Generator_UserRelationName="FK_Sede_CentroFormacion" msprop:Generator_ParentPropName="CentroFormacionRow" msprop:Generator_RelationVarName="relationFK_Sede_CentroFormacion" msprop:Generator_UserParentTable="CentroFormacion" />
-      <msdata:Relationship name="FK_Telefono_Ubicacion" msdata:parent="Ubicacion" msdata:child="Telefono" msdata:parentkey="IdUbicacion" msdata:childkey="IdUbicacion" msprop:Generator_UserChildTable="Telefono" msprop:Generator_ChildPropName="GetTelefonoRows" msprop:Generator_UserRelationName="FK_Telefono_Ubicacion" msprop:Generator_RelationVarName="relationFK_Telefono_Ubicacion" msprop:Generator_UserParentTable="Ubicacion" msprop:Generator_ParentPropName="UbicacionRow" />
-      <msdata:Relationship name="FK_Sede_Ubicacion" msdata:parent="Ubicacion" msdata:child="Sede" msdata:parentkey="IdUbicacion" msdata:childkey="IdUbicacion" msprop:Generator_UserChildTable="Sede" msprop:Generator_ChildPropName="GetSedeRows" msprop:Generator_UserRelationName="FK_Sede_Ubicacion" msprop:Generator_RelationVarName="relationFK_Sede_Ubicacion" msprop:Generator_UserParentTable="Ubicacion" msprop:Generator_ParentPropName="UbicacionRow" />
-      <msdata:Relationship name="FK_Sede_CentroFormacion1" msdata:parent="SedeFull" msdata:child="Sede" msdata:parentkey="IdCentroFormacion" msdata:childkey="IdCentroFormacion" msprop:Generator_UserChildTable="Sede" msprop:Generator_ChildPropName="GetSedeRows" msprop:Generator_UserRelationName="FK_Sede_CentroFormacion1" msprop:Generator_RelationVarName="relationFK_Sede_CentroFormacion1" msprop:Generator_UserParentTable="SedeFull" msprop:Generator_ParentPropName="SedeFullRow" />
-      <msdata:Relationship name="FK_Telefono_TipoTelefono" msdata:parent="TipoTelefono" msdata:child="Telefono" msdata:parentkey="IdTipoTelefono" msdata:childkey="IdTipoTelefono" msprop:Generator_UserChildTable="Telefono" msprop:Generator_ChildPropName="GetTelefonoRows" msprop:Generator_UserRelationName="FK_Telefono_TipoTelefono" msprop:Generator_RelationVarName="relationFK_Telefono_TipoTelefono" msprop:Generator_UserParentTable="TipoTelefono" msprop:Generator_ParentPropName="TipoTelefonoRow" />
-      <msdata:Relationship name="FK_Parqueadero_Sede1" msdata:parent="Sede" msdata:child="ParqueaderoFull" msdata:parentkey="IdSede" msdata:childkey="IdSede" msprop:Generator_UserChildTable="ParqueaderoFull" msprop:Generator_ChildPropName="GetParqueaderoFullRows" msprop:Generator_UserRelationName="FK_Parqueadero_Sede1" msprop:Generator_ParentPropName="SedeRow" msprop:Generator_RelationVarName="relationFK_Parqueadero_Sede1" msprop:Generator_UserParentTable="Sede" />
-      <msdata:Relationship name="FK_Parqueadero_Ubicacion1" msdata:parent="Ubicacion" msdata:child="ParqueaderoFull" msdata:parentkey="IdUbicacion" msdata:childkey="IdUbicacion" msprop:Generator_UserChildTable="ParqueaderoFull" msprop:Generator_ChildPropName="GetParqueaderoFullRows" msprop:Generator_UserRelationName="FK_Parqueadero_Ubicacion1" msprop:Generator_ParentPropName="UbicacionRow" msprop:Generator_RelationVarName="relationFK_Parqueadero_Ubicacion1" msprop:Generator_UserParentTable="Ubicacion" />
-      <msdata:Relationship name="FK_Parqueadero_Sede" msdata:parent="Sede" msdata:child="Parqueadero" msdata:parentkey="IdSede" msdata:childkey="IdSede" msprop:Generator_UserChildTable="Parqueadero" msprop:Generator_ChildPropName="GetParqueaderoRows" msprop:Generator_UserRelationName="FK_Parqueadero_Sede" msprop:Generator_RelationVarName="relationFK_Parqueadero_Sede" msprop:Generator_UserParentTable="Sede" msprop:Generator_ParentPropName="SedeRow" />
-      <msdata:Relationship name="FK_Parqueadero_Ubicacion" msdata:parent="Ubicacion" msdata:child="Parqueadero" msdata:parentkey="IdUbicacion" msdata:childkey="IdUbicacion" msprop:Generator_UserChildTable="Parqueadero" msprop:Generator_ChildPropName="GetParqueaderoRows" msprop:Generator_UserRelationName="FK_Parqueadero_Ubicacion" msprop:Generator_RelationVarName="relationFK_Parqueadero_Ubicacion" msprop:Generator_UserParentTable="Ubicacion" msprop:Generator_ParentPropName="UbicacionRow" />
-      <msdata:Relationship name="FK_Usuario_CentroFormacion" msdata:parent="CentroFormacion" msdata:child="Usuario" msdata:parentkey="IdCentroFormacion" msdata:childkey="IdCentroFormacion" msprop:Generator_UserChildTable="Usuario" msprop:Generator_ChildPropName="GetUsuarioRows" msprop:Generator_UserRelationName="FK_Usuario_CentroFormacion" msprop:Generator_ParentPropName="CentroFormacionRow" msprop:Generator_RelationVarName="relationFK_Usuario_CentroFormacion" msprop:Generator_UserParentTable="CentroFormacion" />
+      <msdata:Relationship name="FK_Sede_CentroFormacion" msdata:parent="CentroFormacion" msdata:child="Sede" msdata:parentkey="IdCentroFormacion" msdata:childkey="IdCentroFormacion" msprop:Generator_UserChildTable="Sede" msprop:Generator_ChildPropName="GetSedeRows" msprop:Generator_UserRelationName="FK_Sede_CentroFormacion" msprop:Generator_RelationVarName="relationFK_Sede_CentroFormacion" msprop:Generator_UserParentTable="CentroFormacion" msprop:Generator_ParentPropName="CentroFormacionRow" />
+      <msdata:Relationship name="FK_Telefono_Ubicacion" msdata:parent="Ubicacion" msdata:child="Telefono" msdata:parentkey="IdUbicacion" msdata:childkey="IdUbicacion" msprop:Generator_UserChildTable="Telefono" msprop:Generator_ChildPropName="GetTelefonoRows" msprop:Generator_UserRelationName="FK_Telefono_Ubicacion" msprop:Generator_ParentPropName="UbicacionRow" msprop:Generator_RelationVarName="relationFK_Telefono_Ubicacion" msprop:Generator_UserParentTable="Ubicacion" />
+      <msdata:Relationship name="FK_Sede_Ubicacion" msdata:parent="Ubicacion" msdata:child="Sede" msdata:parentkey="IdUbicacion" msdata:childkey="IdUbicacion" msprop:Generator_UserChildTable="Sede" msprop:Generator_ChildPropName="GetSedeRows" msprop:Generator_UserRelationName="FK_Sede_Ubicacion" msprop:Generator_ParentPropName="UbicacionRow" msprop:Generator_RelationVarName="relationFK_Sede_Ubicacion" msprop:Generator_UserParentTable="Ubicacion" />
+      <msdata:Relationship name="FK_Telefono_TipoTelefono" msdata:parent="TipoTelefono" msdata:child="Telefono" msdata:parentkey="IdTipoTelefono" msdata:childkey="IdTipoTelefono" msprop:Generator_UserChildTable="Telefono" msprop:Generator_ChildPropName="GetTelefonoRows" msprop:Generator_UserRelationName="FK_Telefono_TipoTelefono" msprop:Generator_ParentPropName="TipoTelefonoRow" msprop:Generator_RelationVarName="relationFK_Telefono_TipoTelefono" msprop:Generator_UserParentTable="TipoTelefono" />
+      <msdata:Relationship name="FK_Parqueadero_Sede" msdata:parent="Sede" msdata:child="Parqueadero" msdata:parentkey="IdSede" msdata:childkey="IdSede" msprop:Generator_UserChildTable="Parqueadero" msprop:Generator_ChildPropName="GetParqueaderoRows" msprop:Generator_UserRelationName="FK_Parqueadero_Sede" msprop:Generator_ParentPropName="SedeRow" msprop:Generator_RelationVarName="relationFK_Parqueadero_Sede" msprop:Generator_UserParentTable="Sede" />
+      <msdata:Relationship name="FK_Parqueadero_Ubicacion" msdata:parent="Ubicacion" msdata:child="Parqueadero" msdata:parentkey="IdUbicacion" msdata:childkey="IdUbicacion" msprop:Generator_UserChildTable="Parqueadero" msprop:Generator_ChildPropName="GetParqueaderoRows" msprop:Generator_UserRelationName="FK_Parqueadero_Ubicacion" msprop:Generator_ParentPropName="UbicacionRow" msprop:Generator_RelationVarName="relationFK_Parqueadero_Ubicacion" msprop:Generator_UserParentTable="Ubicacion" />
+      <msdata:Relationship name="FK_Usuario_CentroFormacion" msdata:parent="CentroFormacion" msdata:child="Usuario" msdata:parentkey="IdCentroFormacion" msdata:childkey="IdCentroFormacion" msprop:Generator_UserChildTable="Usuario" msprop:Generator_ChildPropName="GetUsuarioRows" msprop:Generator_UserRelationName="FK_Usuario_CentroFormacion" msprop:Generator_RelationVarName="relationFK_Usuario_CentroFormacion" msprop:Generator_UserParentTable="CentroFormacion" msprop:Generator_ParentPropName="CentroFormacionRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

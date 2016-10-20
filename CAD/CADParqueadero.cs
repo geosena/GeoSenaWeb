@@ -11,8 +11,6 @@ namespace CAD
     {
         private static ParqueaderoTableAdapter adaptadorParqueadero = new ParqueaderoTableAdapter();
 
-        private static ParqueaderoFullTableAdapter adaptadorFull = new ParqueaderoFullTableAdapter();
-
         public static void InsertParqueadero(string Descripcion, double Cupo, int IdUbicacion, int IdSede)
         {
             adaptadorParqueadero.InsertParqueadero(Descripcion, Cupo, IdUbicacion, IdSede);
@@ -39,20 +37,9 @@ namespace CAD
             return true;
         }
 
-
         public static DSGeoSena.ParqueaderoDataTable GetData()
         {
             return adaptadorParqueadero.GetData();
-        }
-
-        public static DSGeoSena.ParqueaderoFullDataTable GetDataByIdParqueadero(int IdParqueadero)
-        {
-            return adaptadorFull.GetDataByIdParqueadero(IdParqueadero);
-        }
-
-        public static DSGeoSena.ParqueaderoFullDataTable GetDataByIdSede(int IdSede)
-        {
-            return adaptadorFull.GetDataByIdSede(IdSede);
         }
     }
 }

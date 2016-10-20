@@ -11,14 +11,6 @@ namespace CAD
     {
         private static SedeTableAdapter adaptador = new SedeTableAdapter();
 
-        private static SedeFullTableAdapter adaptadorFull = new SedeFullTableAdapter();
-
-        /// <summary>
-        /// CRUD Sede
-        /// </summary>
-        /// <param name="IdCentroFormacion"></param>
-        /// <param name="Descripcion"></param>
-        /// <param name="IdUbicacion"></param>
         public static void InsertSede(int IdCentroFormacion, string Descripcion, int IdUbicacion)
         {
             adaptador.InsertSede(IdCentroFormacion, Descripcion, IdUbicacion);
@@ -43,21 +35,6 @@ namespace CAD
             }
 
             return true;
-        }
-
-        public static DSGeoSena.SedeFullDataTable GetDataByIdSede(int IdSede)
-        {
-            return adaptadorFull.GetDataByIdSede(IdSede);
-        }
-
-        public static DSGeoSena.SedeFullDataTable GetDataByIdCentroFormacion(int IdCentroFormacion)
-        {
-            return adaptadorFull.GetDataByIdCentroFormacion(IdCentroFormacion);
-        }
-
-        public static DSGeoSena.SedeFullDataTable GetDataFull()
-        {
-            return adaptadorFull.GetData();
         }
 
         public static DSGeoSena.SedeDataTable GetData()

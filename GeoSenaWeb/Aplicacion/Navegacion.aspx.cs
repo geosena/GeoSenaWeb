@@ -10,6 +10,7 @@ using System.Data;
 using CAD;
 using Subgurim.Controles.GoogleChartIconMaker;
 using System.Drawing;
+using GeoSenaWeb.Models;
 
 namespace GeoSenaWeb.Aplicacion
 {
@@ -42,7 +43,7 @@ namespace GeoSenaWeb.Aplicacion
             GInfoWindow info;
             PinLetter pinLetter;
 
-            DSGeoSena.SedeFullDataTable miSede = CADSede.GetDataFull();
+            DataSetGeoSena.SedeFullDataTable miSede = SedeFull.GetDataFull();
             DSGeoSena.CentroFormacionDataTable miCentro = CADCentro.GetData();
 
             foreach (DataRow item in miCentro.Rows)
@@ -77,12 +78,14 @@ namespace GeoSenaWeb.Aplicacion
         {
             if (centrosFormacionDropDownList.SelectedIndex == 0)
             {
+                sedesDropDownList.Visible = false;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarCentros();
             }
             else
             {
+                sedesDropDownList.Visible = true;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarSedes(centrosFormacionDropDownList.SelectedValue);
@@ -96,8 +99,8 @@ namespace GeoSenaWeb.Aplicacion
             GInfoWindow info;
             PinLetter pinLetter;
 
-            DSGeoSena.SedeFullDataTable miSede =
-                CADSede.GetDataByIdCentroFormacion(Convert.ToInt32(selectedValue));
+            DataSetGeoSena.SedeFullDataTable miSede =
+                SedeFull.GetDataByIdCentroFormacion(Convert.ToInt32(selectedValue));
 
             if (miSede.Rows.Count == 0)
             {
@@ -159,15 +162,18 @@ namespace GeoSenaWeb.Aplicacion
         {
             if (sedesDropDownList.SelectedIndex == 0)
             {
+                rutaButton.Visible = false;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarSedes(centrosFormacionDropDownList.SelectedValue);
             }
             else
             {
+                rutaButton.Visible = true;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarParqueaderos(sedesDropDownList.SelectedValue);
+                GMap1.Add(new GMapUI());
             }
         }
 
@@ -178,8 +184,8 @@ namespace GeoSenaWeb.Aplicacion
             GInfoWindow info;
             PinLetter pinLetter;
 
-            DSGeoSena.SedeFullDataTable miSede =
-                CADSede.GetDataByIdSede(Convert.ToInt32(selectedValue));
+            DataSetGeoSena.SedeFullDataTable miSede =
+                SedeFull.GetDataByIdSede(Convert.ToInt32(selectedValue));
 
             if (miSede.Rows.Count == 0)
             {
@@ -206,8 +212,8 @@ namespace GeoSenaWeb.Aplicacion
 
             int idSede = (int)miSede.Rows[0].ItemArray[0];
 
-            DSGeoSena.ParqueaderoFullDataTable miParqueadero =
-                CADParqueadero.GetDataByIdSede(idSede);
+            DataSetGeoSena.ParqueaderoFullDataTable miParqueadero =
+                ParqueaderoFull.GetDataByIdSede(idSede);
 
             foreach (DataRow item in miParqueadero.Rows)
             {
@@ -238,6 +244,32 @@ namespace GeoSenaWeb.Aplicacion
                 GMap1.setCenter(gLatLng, 21);
 
             }
+        }
+
+        protected void rutaButton_Click(object sender, EventArgs e)
+        {
+            DataSetGeoSena.SedeFullDataTable miSede =
+                SedeFull.GetDataByIdSede(Convert.ToInt32(sedesDropDownList.SelectedValue));
+
+            if (miSede.Rows.Count == 0)
+            {
+                return;
+            }
+
+            string gLatLng = miSede.Rows[0].ItemArray[6].ToString() + miSede.Rows[0].ItemArray[7].ToString();
+
+            GDirection ruta = new GDirection();
+
+            ruta.autoGenerate = false;
+            ruta.buttonText="traza";
+            ruta.fromText = gLatLng;
+            ruta.toText = gLatLng;
+            ruta.errorMessage = "Oops";
+            ruta.travelMode = GDirection.GTravelModeEnum.DRIVING;
+            ruta.clearMap = true;
+            
+
+            GMap1.Add(ruta);
         }
     }
 }

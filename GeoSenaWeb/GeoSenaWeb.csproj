@@ -247,6 +247,17 @@
     <Content Include="Perfil\Perfil.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="DataSetGeoSena.xsc">
+      <DependentUpon>DataSetGeoSena.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetGeoSena.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetGeoSena.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSetGeoSena.xss">
+      <DependentUpon>DataSetGeoSena.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\GetMapa.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -477,8 +488,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="DataSetGeoSena.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetGeoSena.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ParqueaderoFull.cs" />
     <Compile Include="Models\RegexUtilities.cs" />
+    <Compile Include="Models\SedeFull.cs" />
     <Compile Include="Perfil\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

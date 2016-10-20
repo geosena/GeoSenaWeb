@@ -14,7 +14,6 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\GeoSenaWeb.
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\GeoSenaWeb.Tests.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\GeoSenaWeb.Tests.pdb
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\GeoSenaWeb.dll
-C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Microsoft.Owin.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\System.Web.Optimization.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
@@ -38,7 +37,6 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Microsoft.O
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\EntityFramework.xml
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\es\Microsoft.Owin.resources.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\es\System.Web.Optimization.resources.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb.Tests\bin\Debug\es\Microsoft.AspNet.Identity.Core.resources.dll

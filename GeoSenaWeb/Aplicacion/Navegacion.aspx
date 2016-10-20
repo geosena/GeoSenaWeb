@@ -10,8 +10,8 @@
         .mapa {
             width: 100%;
             height: 100%;
-            margin: 0 auto -82px;
-            top: -42px;
+            margin: 0 auto -70px;
+            top: -25px;
             display: block;
             position: relative;
             padding: 0;
@@ -28,16 +28,18 @@
             overflow: hidden;
             z-index: 2;
             width: 100%;
-            top: 47px;
+            top: 30px;
         }
-        footer{
-            height:10px;
-            margin:0;
+
+        footer {
+            height: 10px;
+            margin: 0;
         }
-        footer>p{
-            height:15px;
-            margin:0;
-        }
+
+            footer > p {
+                height: 15px;
+                margin: 0;
+            }
     </style>
     <!--Section-->
 
@@ -50,10 +52,11 @@
                 OnSelectedIndexChanged="centrosFormacionDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
             <asp:DropDownList ID="sedesDropDownList" runat="server"
-                        DataSourceID="sedesSqlDataSource" DataTextField="Sede"
-                        DataValueField="IdSede" AutoPostBack="true"
-                        OnSelectedIndexChanged="sedesDropDownList_SelectedIndexChanged">
-                    </asp:DropDownList>
+                DataSourceID="sedesSqlDataSource" DataTextField="Sede"
+                DataValueField="IdSede" AutoPostBack="true"
+                OnSelectedIndexChanged="sedesDropDownList_SelectedIndexChanged" Visible="False">
+            </asp:DropDownList>
+            <asp:Button ID="rutaButton" runat="server" Text="Trazar Ruta" Visible="false" CssClass="btn btn-success btn-xs" OnClick="rutaButton_Click" />
         </div>
         <section class="map_canvas">
             <cc1:GMap ID="GMap1" runat="server" Width="100%" Height="100%" />

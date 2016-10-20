@@ -12,6 +12,7 @@ using System.Web.Services;
 using System.Data.SqlClient;
 using System.Configuration;
 using Newtonsoft.Json;
+using GeoSenaWeb.Models;
 
 namespace GeoSenaWeb.Administracion
 {
@@ -61,8 +62,8 @@ namespace GeoSenaWeb.Administracion
                 return;
             }
 
-            DSGeoSena.SedeFullDataTable miCentro =
-                CADSede.GetDataByIdSede(Convert.ToInt32(idTextBox.Text));
+            DataSetGeoSena.SedeFullDataTable miCentro =
+                SedeFull.GetDataByIdSede(Convert.ToInt32(idTextBox.Text));
 
             foreach (DataRow item in miCentro.Rows)
             {
@@ -193,7 +194,7 @@ namespace GeoSenaWeb.Administracion
             int idCentroFormacion = Convert.ToInt32(centroFormacionDropDownList.SelectedValue);
             int idTipoTelefono = Convert.ToInt32(tipoTelefono1DropDownList.SelectedValue);
 
-            DSGeoSena.SedeFullDataTable miCentro = CADSede.GetDataByIdSede(idSede);
+            DataSetGeoSena.SedeFullDataTable miCentro = SedeFull.GetDataByIdSede(idSede);
 
             int idUbicacion = Convert.ToInt32(miCentro.Rows[0].ItemArray[4].ToString());
             int idTelefono = Convert.ToInt32(miCentro.Rows[0].ItemArray[9].ToString());
@@ -220,7 +221,7 @@ namespace GeoSenaWeb.Administracion
         {
             int idSede = Convert.ToInt32(idTextBox.Text);
 
-            DSGeoSena.SedeFullDataTable miCentro = CADSede.GetDataByIdSede(idSede);
+            DataSetGeoSena.SedeFullDataTable miCentro = SedeFull.GetDataByIdSede(idSede);
 
             int idUbicacion = Convert.ToInt32(miCentro.Rows[0].ItemArray[4].ToString());
             int idTelefono = Convert.ToInt32(miCentro.Rows[0].ItemArray[9].ToString());
