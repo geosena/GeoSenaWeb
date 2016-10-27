@@ -1,0 +1,215 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GeoSenaWeb.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - GeoSena</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/themes/base/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Para obtener más información sobre cómo agrupar scripts en ScriptManager, consulte http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Scripts de marco--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="jquery.ui.combined" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Scripts del sitio--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">GEO-SENA-PARQ
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Inicio</a></li>
+                        <li><a runat="server" href="~/Aplicacion/About">Acerca de</a></li>
+                        <li>
+                            <asp:LinkButton ID="centrosLinkButton" runat="server" PostBackUrl="~/Aplicacion/Centros.aspx">Centros</asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton ID="NavegacionLinkButton" runat="server" PostBackUrl="~/Aplicacion/Navegacion.aspx">Navegacion</asp:LinkButton>
+                        </li>
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- administrador -->
+                        <li class="dropdown">
+                            <asp:LinkButton ID="iniciarSesionLinkButton" runat="server" PostBackUrl="~/Sesion/Index.aspx">Iniciar Sesion</asp:LinkButton>
+                            <asp:LinkButton ID="adminMenuLinkButton" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server" PostBackUrl="~/">Administrador</asp:LinkButton>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:LinkButton ID="LinkButton11" runat="server" PostBackUrl="~/Administracion/CentrosFormacion.aspx">Centro de Formación</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Administracion/Sedes.aspx">Sedes</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/Administracion/Parqueaderos.aspx">Parqueaderos</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/Administracion/Usuarios.aspx">Usuarios</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="~/Administracion/Administrador.aspx">Administradores</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+
+                        <!-- reportes -->
+                        <li class="dropdown">
+                            <asp:LinkButton ID="reporteMenuLinkButton" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server" PostBackUrl="~/">Reportes</asp:LinkButton>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:LinkButton ID="LinkButton6" runat="server" PostBackUrl="~/">Centro de Formación</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton7" runat="server" PostBackUrl="~/">Sedes</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton8" runat="server" PostBackUrl="~/">Parqueaderos</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton10" runat="server" PostBackUrl="~/">Apredendices Sena por Centro</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="LinkButton13" runat="server" PostBackUrl="~/">Uso Aplicación</asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+
+                        <!-- usuario -->
+                        <li class="dropdown">
+                            <asp:LinkButton ID="userMenuLinkButton" CssClass="dropdown-toggle"
+                                data-toggle="dropdown" runat="server" PostBackUrl="~/">
+                                Hola,
+                                <asp:Label ID="usuarioLabel" runat="server" Text="User"></asp:Label>
+                                ! 
+                                &nbsp;&nbsp;<span class="caret"></span>
+                            </asp:LinkButton>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <asp:LinkButton ID="perfilLinkButton" runat="server" PostBackUrl="~/Perfil/Perfil.aspx">Perfil</asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="cambioClaveLinkButton" data-toggle="modal"
+                                    data-target="#myModalClave" runat="server" >
+                                        Cambio Contraseña
+                                    </asp:LinkButton>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <asp:LinkButton ID="cerrarSesionLinkButton" runat="server" OnClick="cerrarSesionLinkButton_Click">Cerrar Sesion</asp:LinkButton>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - GeoSena</p>
+            </footer>
+        </div>
+
+        <!-- Cambiar clave Modal -->
+    <div class="modal" id="myModalClave">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Cambiar Contraseña</h4>
+                </div>
+                <div class="modal-body">
+                    <asp:UpdatePanel ID="panel" runat="server">
+                        <ContentTemplate>
+                            <asp:Label ID="mensajeClaveLabel" runat="server" Text=""
+                                CssClass="alert alert-dismissible alert-danger" Visible="false"></asp:Label>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="cambioButton" EventName="click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                    <br />
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <td class="text-right">Clave Actual:</td>
+                            <td>
+                                <asp:TextBox ID="claveAnteriorTextBox" runat="server" Height="26px" Width="280px" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Nueva Clave:</td>
+                            <td>
+                                <asp:TextBox ID="claveTextBox" runat="server" Height="26px" Width="280px" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Confirmación Clave</td>
+                            <td>
+                                <asp:TextBox ID="claveConfirmacionTextBox" runat="server" Height="26px" Width="280px" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <asp:CompareValidator ID="CompareValidator1" runat="server"
+                                    ControlToCompare="claveTextBox" ControlToValidate="claveConfirmacionTextBox"
+                                    CssClass="alert-danger" Display="Static"
+                                    ErrorMessage="Las contraseñas no coinciden">
+                                </asp:CompareValidator>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <asp:Button ID="cambioButton" runat="server" Text="Cambiar"
+                        CssClass="btn btn-primary" OnClick="cambioClaveLinkButton_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+</body>
+</html>

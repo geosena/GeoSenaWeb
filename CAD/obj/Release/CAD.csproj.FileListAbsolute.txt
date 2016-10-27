@@ -1,0 +1,6 @@
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\CAD\bin\Release\CAD.dll.config
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\CAD\bin\Release\CAD.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\CAD\bin\Release\CAD.pdb
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\CAD\obj\Release\CAD.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\CAD\obj\Release\CAD.pdb
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\CAD\obj\Release\CAD.csprojResolveAssemblyReference.cache
