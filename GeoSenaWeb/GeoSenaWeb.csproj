@@ -192,6 +192,7 @@
     <Content Include="Administracion\Usuarios.aspx" />
     <Content Include="Aplicacion\Centros.aspx" />
     <Content Include="Aplicacion\Navegacion.aspx" />
+    <Content Include="Aplicacion\WebForm1.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap1.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -258,6 +259,7 @@
     <Content Include="DataSetGeoSena.xss">
       <DependentUpon>DataSetGeoSena.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\GeoSena - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\GetMapa.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -298,7 +300,9 @@
     <Content Include="Sesion\RegistroUsuario.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -460,6 +464,13 @@
     <Compile Include="Aplicacion\Navegacion.aspx.designer.cs">
       <DependentUpon>Navegacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Aplicacion\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aplicacion\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Aplicacion\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -554,6 +565,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

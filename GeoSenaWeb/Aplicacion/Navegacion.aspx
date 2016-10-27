@@ -2,9 +2,7 @@
 
 <%@ Register Assembly="GMaps" Namespace="Subgurim.Controles" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tz9fTL13nob8D3MPBvpjoRBlE5hfok8&signed_in=true&callback=mostrar">
-    </script>
+
     <style>
         /*****mapa*********/
         .mapa {
@@ -41,6 +39,132 @@
                 margin: 0;
             }
     </style>
+     <script>
+         var destino;
+         var origen;
+
+  window.onload = function () {
+      
+
+     if( navigator.geolocation )
+        { 
+            navigator.geolocation.getCurrentPosition(mostrar, errores);
+        }
+        else
+        {
+            //mensaje en caso de que el navegador no soporte la api de navegacion
+            alert("Your browser does not support geolocation services.");
+        }
+        //mapa
+        function mostrar(posicion){
+
+            origen = new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude);
+
+            var marker = new google.maps.Marker(
+                {
+                position: origen,
+                map: subgurim_GMap1,
+                animation: google.maps.Animation.DROP,
+                title: "Mi Ubicacion Actual"
+                }
+            );
+            marker.addListener("click", function () {
+                new google.maps.InfoWindow({ content: '<b>Mi Ubicación</b>' }).open(subgurim_GMap1, marker);
+            });
+            //new google.maps.InfoWindow({ content: '<b>Mi Ubicación</b>' }).click(subgurim_GMap1, marker);
+            //subgurim_GMap1.setZoom(18);
+		
+        }//fin mostrar
+		
+        // errores de navegacion
+        function errores(error){
+		 
+            switch(error.code) {
+				
+                case error.PERMISSION_DENIED:
+                    alert("Oops! No has aceptado compartir tu posición.('User denied the request for Geolocation.')");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Oops! No se puede obtener la posición actual.('Location information is unavailable.')");
+                    break;
+                case error.TIMEOUT:
+                    alert("Oops! Hemos superado el tiempo de espera.('The request to get user location timed out.')");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Oops! Algo ha salido mal.('An unknown error occurred.')");
+                    break;
+            }
+				
+        }//fin errores
+	
+
+     $("#trazarRutaButton").click(function () {
+
+      var pageUrl = '<%= ResolveUrl("~/Aplicacion/Navegacion.aspx/GetLatLng") %>';
+
+      var criterio = '<%= sedesDropDownList.SelectedValue%>';
+
+      var parameter = { "criterio": criterio }
+
+      $.ajax({
+          url: pageUrl,
+          type: "POST",
+          data: JSON.stringify(parameter),
+          contentType: "application/json; charser=utf-8",
+          datatype: "json",
+          success: function (result) {
+
+              destino = result.d;
+
+              var directionsDisplay = new google.maps.DirectionsRenderer();
+              var directionsService = new google.maps.DirectionsService();
+
+              var request = {
+                  origin: origen,
+                  destination: destino,
+                  travelMode: google.maps.DirectionsTravelMode.DRIVING,
+                  unitSystem: google.maps.DirectionsUnitSystem.METRIC,
+                  provideRouteAlternatives: true
+              };
+
+              directionsService.route(request, function (response, status) {
+                  if (status == google.maps.DirectionsStatus.OK) {
+                      directionsDisplay.setMap(subgurim_GMap1);
+                      //directionsDisplay.setPanel($("#panel_ruta").get(0));
+                      directionsDisplay.setDirections(response);
+                  } else {
+                      if (status == 'ZERO_RESULTS') {
+                          alert('No route could be found between the origin and destination.');
+                      } else if (status == 'UNKNOWN_ERROR') {
+                          alert('A directions request could not be processed due to a server error. The request may succeed if you try again.');
+                      } else if (status == 'REQUEST_DENIED') {
+                          alert('This webpage is not allowed to use the directions service.');
+                      } else if (status == 'OVER_QUERY_LIMIT') {
+                          alert('The webpage has gone over the requests limit in too short a period of time.');
+                      } else if (status == 'NOT_FOUND') {
+                          alert('At least one of the origin, destination, or waypoints could not be geocoded.');
+                      } else if (status == 'INVALID_REQUEST') {
+                          alert('The DirectionsRequest provided was invalid.');
+                      } else {
+                          alert("There was an unknown error in your request. Requeststatus: nn" + status);
+                      }
+                  }
+
+                  alert(origen);
+                  alert(destino);
+              });
+          },
+          error: function (err) {
+              alert("Fail " + err);
+          }
+      });
+  });
+
+         
+  }//function onload
+
+  
+    </script>
     <!--Section-->
 
     <div class="mapa">
@@ -54,12 +178,17 @@
             <asp:DropDownList ID="sedesDropDownList" runat="server"
                 DataSourceID="sedesSqlDataSource" DataTextField="Sede"
                 DataValueField="IdSede" AutoPostBack="true"
-                OnSelectedIndexChanged="sedesDropDownList_SelectedIndexChanged" Visible="False">
+                OnSelectedIndexChanged="sedesDropDownList_SelectedIndexChanged" Visible="False" CssClass="sedeList">
             </asp:DropDownList>
-            <asp:Button ID="rutaButton" runat="server" Text="Trazar Ruta" Visible="false" CssClass="btn btn-success btn-xs" OnClick="rutaButton_Click" />
+            <input id="trazarRutaButton" type="button" value="Trazar Ruta"  />
+            <script>
+          
+            </script>
         </div>
         <section class="map_canvas">
-            <cc1:GMap ID="GMap1" runat="server" Width="100%" Height="100%" />
+            <cc1:GMap ID="GMap1" runat="server" Width="100%" Height="100%" CssClass="mapcanvas" 
+                enableServerEvents="true" serverEventsType="GMapsAjax" ClientIDMode="AutoID" 
+             />
         </section>
     </div>
 

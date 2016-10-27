@@ -11,11 +11,15 @@ using CAD;
 using Subgurim.Controles.GoogleChartIconMaker;
 using System.Drawing;
 using GeoSenaWeb.Models;
+using System.Text;
+using System.Web.Services;
+using System.Data.SqlClient;
 
 namespace GeoSenaWeb.Aplicacion
 {
     public partial class Navegacion : System.Web.UI.Page
     {
+        string origen = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,15 +28,22 @@ namespace GeoSenaWeb.Aplicacion
 
                 dibujarCentros();
             }
-
         }
 
         private void iniciarMapa()
         {
-            double latitud = 4.616455;
-            double longuitud = -74.112301;
+            double latitud = 4.752848270124457;
+            double longuitud = -74.0383243560791;
             GLatLng ubicacion = new GLatLng(latitud, longuitud);
+            GControl control2 = new GControl(GControl.preBuilt.MenuMapTypeControl, new GControlPosition(GControlPosition.position.Top_Right));
+            GControl control = new GControl(GControl.preBuilt.LargeMapControl);
             GMap1.enableHookMouseWheelToZoom = true;
+            GMap1.enableGKeyboardHandler = true;
+            GMap1.enablePostBackPersistence = false;
+            GMap1.Add(control);
+            GMap1.Add(control2);
+            GMap1.Add(new GControl(GControl.preBuilt.GOverviewMapControl, new GControlPosition(GControlPosition.position.Bottom_Left)));
+            GMap1.enableRotation = true;
             GMap1.setCenter(ubicacion, 13);
         }
 
@@ -162,14 +173,12 @@ namespace GeoSenaWeb.Aplicacion
         {
             if (sedesDropDownList.SelectedIndex == 0)
             {
-                rutaButton.Visible = false;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarSedes(centrosFormacionDropDownList.SelectedValue);
             }
             else
             {
-                rutaButton.Visible = true;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarParqueaderos(sedesDropDownList.SelectedValue);
@@ -257,19 +266,18 @@ namespace GeoSenaWeb.Aplicacion
             }
 
             string gLatLng = miSede.Rows[0].ItemArray[6].ToString() + miSede.Rows[0].ItemArray[7].ToString();
+        }
 
-            GDirection ruta = new GDirection();
+        [WebMethod]
+        public static string GetLatLng(string criterio)
+        {
+            DataSetGeoSena.SedeFullDataTable miSede =
+                SedeFull.GetDataByIdSede(Convert.ToInt32(criterio));
 
-            ruta.autoGenerate = false;
-            ruta.buttonText="traza";
-            ruta.fromText = gLatLng;
-            ruta.toText = gLatLng;
-            ruta.errorMessage = "Oops";
-            ruta.travelMode = GDirection.GTravelModeEnum.DRIVING;
-            ruta.clearMap = true;
-            
+            string gLatLng = 
+                miSede.Rows[0].ItemArray[6].ToString() + "," + miSede.Rows[0].ItemArray[7].ToString();
 
-            GMap1.Add(ruta);
+            return gLatLng;
         }
     }
 }
