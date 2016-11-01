@@ -21,9 +21,8 @@ namespace GeoSenaWeb.Tests
             {
                 //Act
                 var resultado = CAD.CADAdministrador.ExisteAdministrador(identificacion, password);
-                
+
                 //Assert
-                
                 Assert.AreEqual(resultado, true, "Se esperaba 'Verdadero'");
             }
         }
@@ -32,27 +31,39 @@ namespace GeoSenaWeb.Tests
         public void ProbarExisteAdminByIdentificacion()
         {
             //Arrange
-            var CADAdministrador = new CAD.CADAdministrador();
+            int IdAdministrador = 1;
 
             //Act
-            var resultado = CAD.CADAdministrador.ExsteAdministradorByIdAdministrador(1);
+            if (IdAdministrador <= 0)
+            {
+                Assert.Fail("Los parametros deben ser validos");
+            }
+            else
+            {
+                var resultado = CAD.CADAdministrador.ExsteAdministradorByIdAdministrador(IdAdministrador);
 
-            //Assert
-
-            Assert.AreEqual(resultado, true, "Se esperaba 'Verdadero'");
+                //Assert
+                Assert.AreEqual(resultado, true, "Se esperaba 'Verdadero'");
+            }
         }
 
         [TestMethod]
         public void ProbarInserAdmin()
         {
-            try
-            {
-                CAD.CADAdministrador.InsertAdministrador("William", "Hurtado", "williandres8@gmail.com", "", "admin1234");
-            }
-            catch (Exception)
-            {
+            string nombres = "";
+            string apellidos = "";
+            string correo = "";
+            string identificacion = "";
+            string clave = "";
 
+            if (nombres == string.Empty || apellidos == string.Empty || correo == string.Empty
+                || identificacion == string.Empty || clave == string.Empty)
+            {
                 Assert.Fail("No es posible insertar");
+            }
+            else
+            {
+                CAD.CADAdministrador.InsertAdministrador(nombres, apellidos, correo, identificacion, clave);
             }
         }
     }

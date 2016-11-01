@@ -47,6 +47,10 @@
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="GMaps">
       <HintPath>D:\MIS DOCUMENTOS\DESCARGAS\GMaps.dll</HintPath>
     </Reference>
@@ -192,7 +196,6 @@
     <Content Include="Administracion\Usuarios.aspx" />
     <Content Include="Aplicacion\Centros.aspx" />
     <Content Include="Aplicacion\Navegacion.aspx" />
-    <Content Include="Aplicacion\WebForm1.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap1.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -245,6 +248,10 @@
     <Content Include="Account\Web.config" />
     <Content Include="Images\consultor.jpg" />
     <Content Include="Images\logoSena.png" />
+    <Content Include="Informes\ListadoCentros.aspx" />
+    <Content Include="Informes\ListadoParqueaderos.aspx" />
+    <Content Include="Informes\ListadoSedes.aspx" />
+    <Content Include="Informes\ListadoUsuarios.aspx" />
     <Content Include="Perfil\Perfil.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -464,13 +471,6 @@
     <Compile Include="Aplicacion\Navegacion.aspx.designer.cs">
       <DependentUpon>Navegacion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Aplicacion\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aplicacion\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Aplicacion\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -503,6 +503,58 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetGeoSena.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\CRListadoCentros.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRListadoCentros.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\CRParqueadero.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRParqueadero.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\CRSedes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRSedes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\CRUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Informes\ListadoCentros.aspx.cs">
+      <DependentUpon>ListadoCentros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\ListadoCentros.aspx.designer.cs">
+      <DependentUpon>ListadoCentros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\ListadoParqueaderos.aspx.cs">
+      <DependentUpon>ListadoParqueaderos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\ListadoParqueaderos.aspx.designer.cs">
+      <DependentUpon>ListadoParqueaderos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\ListadoSedes.aspx.cs">
+      <DependentUpon>ListadoSedes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\ListadoSedes.aspx.designer.cs">
+      <DependentUpon>ListadoSedes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\ListadoUsuarios.aspx.cs">
+      <DependentUpon>ListadoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\ListadoUsuarios.aspx.designer.cs">
+      <DependentUpon>ListadoUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ParqueaderoFull.cs" />
@@ -561,6 +613,27 @@
       <Project>{7020c783-a283-4c3f-bb35-105b28279151}</Project>
       <Name>CAD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Informes\CRListadoCentros.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRListadoCentros.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\CRParqueadero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRParqueadero.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\CRSedes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRSedes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\CRUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

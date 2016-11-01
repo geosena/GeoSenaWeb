@@ -48,12 +48,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">GEO-SENA-PARQ
+                    <a class="navbar-brand" runat="server" href="Default.aspx">GEO-SENA-PARQ
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
+                        <li><a runat="server" href="Default.aspx">Inicio</a></li>
                         <li><a runat="server" href="~/Aplicacion/About">Acerca de</a></li>
                         <li>
                             <asp:LinkButton ID="centrosLinkButton" runat="server" PostBackUrl="~/Aplicacion/Centros.aspx">Centros</asp:LinkButton>
@@ -95,17 +95,17 @@
                             <asp:LinkButton ID="reporteMenuLinkButton" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server" PostBackUrl="~/">Reportes</asp:LinkButton>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <asp:LinkButton ID="LinkButton6" runat="server" PostBackUrl="~/">Centro de Formación</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton6" runat="server" PostBackUrl="~/Informes/ListadoCentros.aspx">Centro de Formación</asp:LinkButton>
                                 </li>
                                 <li>
-                                    <asp:LinkButton ID="LinkButton7" runat="server" PostBackUrl="~/">Sedes</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton7" runat="server" PostBackUrl="~/Informes/ListadoSedes.aspx">Sedes</asp:LinkButton>
                                 </li>
                                 <li>
-                                    <asp:LinkButton ID="LinkButton8" runat="server" PostBackUrl="~/">Parqueaderos</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton8" runat="server" PostBackUrl="~/Informes/ListadoParqueaderos.aspx">Parqueaderos</asp:LinkButton>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <asp:LinkButton ID="LinkButton10" runat="server" PostBackUrl="~/">Apredendices Sena por Centro</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton10" runat="server" PostBackUrl="~/Informes/ListadoUsuarios.aspx">Apredendices Sena por Centro</asp:LinkButton>
                                 </li>
                                 <li>
                                     <asp:LinkButton ID="LinkButton13" runat="server" PostBackUrl="~/">Uso Aplicación</asp:LinkButton>

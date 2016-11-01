@@ -7,18 +7,18 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace GeoSenaWeb.Aplicacion {
+namespace GeoSenaWeb.Informes {
     
     
-    public partial class WebForm1 {
+    public partial class ListadoCentros {
         
         /// <summary>
-        /// Control GMap1.
+        /// Control ListadoCentrosFormacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Subgurim.Controles.GMap GMap1;
+        protected global::CrystalDecisions.Web.CrystalReportViewer ListadoCentrosFormacion;
     }
 }

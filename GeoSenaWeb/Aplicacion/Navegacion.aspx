@@ -149,9 +149,6 @@
                           alert("There was an unknown error in your request. Requeststatus: nn" + status);
                       }
                   }
-
-                  alert(origen);
-                  alert(destino);
               });
           },
           error: function (err) {
@@ -180,7 +177,9 @@
                 DataValueField="IdSede" AutoPostBack="true"
                 OnSelectedIndexChanged="sedesDropDownList_SelectedIndexChanged" Visible="False" CssClass="sedeList">
             </asp:DropDownList>
-            <input id="trazarRutaButton" type="button" value="Trazar Ruta"  />
+            <asp:Panel runat="server" Visible="false" ID="botonTrazador" CssClass="btn btn-xs">
+                <input id="trazarRutaButton" type="button" value="Trazar Ruta" class="btn-success"  />
+            </asp:Panel>
             <script>
           
             </script>

@@ -7,7 +7,7 @@
   <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=.;Initial Catalog=GeoSenaDB;Integrated Security=True" tags="">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Widres88\\Source\\Repos\\GeoSenaWeb\\GeoSenaWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
-  <parameter name="GeoSenaDBConnectionString-Web.config Connection String" description="" value="data source=.;initial catalog=GeoSenaDB;integrated security=True;MultipleActiveResultSets=False" tags="">
+  <parameter name="GeoSenaDBConnectionString-Web.config Connection String" description="" value="Data Source=.;Initial Catalog=GeoSenaDB;Integrated Security=True" tags="">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Widres88\\Source\\Repos\\GeoSenaWeb\\GeoSenaWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GeoSenaDBConnectionString']/@connectionString" />
   </parameter>
 </parameters>

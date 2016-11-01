@@ -173,12 +173,14 @@ namespace GeoSenaWeb.Aplicacion
         {
             if (sedesDropDownList.SelectedIndex == 0)
             {
+                botonTrazador.Visible = false;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarSedes(centrosFormacionDropDownList.SelectedValue);
             }
             else
             {
+                botonTrazador.Visible = true;
                 GMap1.reset();
                 iniciarMapa();
                 dibujarParqueaderos(sedesDropDownList.SelectedValue);
