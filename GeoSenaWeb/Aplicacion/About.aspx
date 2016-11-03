@@ -57,21 +57,15 @@
         <fieldset class="legendaDatos">
             <legend>Que es GEO-SENA-PARQ?</legend>
             <p class="lead ">
-                Este proyecto es iniciativa de tres aprendices del Sena Centro de Electricidad, Electronica y 
-        Telecomunicaciones(CEET), para ayudar a los aprendices e intructores que ingresan por primera vez a un 
-        centro de formación Sena; en esta aplicacion web desarrollada en
-                <abbr data-toggle="tooltip" title="C# Visual Studio 2015 FrameWork 4.6">ASP.NET</abbr>; podran ubicar en el mapa de 
-        google el centro de formacion que desee y sus parqueaderos.
+                Este proyecto es una iniciativa de tres aprendices del Sena Centro de Electricidad, Electrónica y Telecomunicaciones(CEET), para ayudar a los aprendices e instructores que ingresan por primera vez a un 
+        centro de formación Sena; en esta aplicación web desarrollada en
+                <abbr data-toggle="tooltip" title="C# Visual Studio 2015 FrameWork 4.6">ASP.NET</abbr>, con la inclusión de la API de Google Maps, API de Google
+                reCAPTCHA, Ajax, JQuery, JavaScript, Bootstrap.</p>
+            <p class="lead ">
+                En ella podrán ubicar en el mapa de google el centro de formación que desee y sus parqueaderos.
+                Para quienes se movilizan en vehículos, motos, tendrán la facilidad de trazar una ruta desde 
+        el punto de donde se encuentran hasta su centro de formación con un solo clic.
             </p>
-            <p class="lead">
-                Para quienes se movilizan en vehiculos, motos, tendran la facilidad de trazar una ruta desde 
-        el punto de donde se encuentran hasta su centro de formación con un solo click.
-            </p>
-            <p class="lead">
-                Esta aplicacion fue hecha para todos, no es necesario registrarse, solo ubica tu sede e 
-        iniciar tu recorrido.
-            </p>
-
             <div class="row">
                 <div class="aprendiz">
                     <h3>Aprendices</h3>

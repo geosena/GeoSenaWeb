@@ -277,7 +277,7 @@ namespace GeoSenaWeb.Aplicacion
                 SedeFull.GetDataByIdSede(Convert.ToInt32(criterio));
 
             string gLatLng = 
-                miSede.Rows[0].ItemArray[6].ToString() + "," + miSede.Rows[0].ItemArray[7].ToString();
+                miSede.Rows[0].ItemArray[6].ToString().Replace(",",".") + "," + miSede.Rows[0].ItemArray[7].ToString().Replace(",", ".");
 
             return gLatLng;
         }

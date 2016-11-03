@@ -37,7 +37,7 @@ namespace GeoSenaWeb.Sesion
             {
                 mensajeLabel.Visible = true;
                 mensajeLabel.Text = "Recaptcha Incorrecto";
-                contraseñaTextBox.Focus();
+                recaptcha.Focus();
                 return;
             }
 

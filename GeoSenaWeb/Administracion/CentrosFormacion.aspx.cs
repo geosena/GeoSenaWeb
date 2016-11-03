@@ -17,17 +17,23 @@ namespace GeoSenaWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["rol"] == "")
-            //{
-            //    Session["rol"] = "";
-            //    Response.Redirect("~/Sesion/Index.aspx");
+            if (Session["rol"] == "")
+            {
+                Session["rol"] = "";
+                Session["DatosUsuarioAdministrador"] = "";
+                Session["DatosUsuarioUser"] = "";
 
-            //}
-            //else if (Session["rol"] == "Aprendiz Sena")
-            //{
-            //    Session["rol"] = "";
-            //    Response.Redirect("~/Sesion/Index.aspx");
-            //}
+                Response.Redirect("~/Sesion/Index.aspx");
+
+            }
+            else if (Session["rol"] == "Aprendiz Sena")
+            {
+                Session["rol"] = "";
+                Session["DatosUsuarioAdministrador"] = "";
+                Session["DatosUsuarioUser"] = "";
+
+                Response.Redirect("~/Sesion/Index.aspx");
+            }
         }
 
         protected void consultarButton_Click(object sender, EventArgs e)

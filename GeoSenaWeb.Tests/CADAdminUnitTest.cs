@@ -9,7 +9,7 @@ namespace GeoSenaWeb.Tests
         [TestMethod]
         public void ProbarExisteAdmin()
         {
-            //Arrange
+            //Arrange planeamiento
             var identificacion = "123456789";
             var password = "admin123";
 
@@ -19,10 +19,10 @@ namespace GeoSenaWeb.Tests
             }
             else
             {
-                //Act
+                //Act prueba
                 var resultado = CAD.CADAdministrador.ExisteAdministrador(identificacion, password);
 
-                //Assert
+                //Assert afirmacion
                 Assert.AreEqual(resultado, true, "Se esperaba 'Verdadero'");
             }
         }

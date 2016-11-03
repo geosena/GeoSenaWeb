@@ -18,6 +18,24 @@ namespace GeoSenaWeb.Administracion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["rol"] == "")
+            {
+                Session["rol"] = "";
+                Session["DatosUsuarioAdministrador"] = "";
+                Session["DatosUsuarioUser"] = "";
+
+                Response.Redirect("~/Sesion/Index.aspx");
+
+            }
+            else if (Session["rol"] == "Aprendiz Sena")
+            {
+                Session["rol"] = "";
+                Session["DatosUsuarioAdministrador"] = "";
+                Session["DatosUsuarioUser"] = "";
+
+                Response.Redirect("~/Sesion/Index.aspx");
+            }
+
             if (!IsPostBack)
             {
                 fechaModificacionTextBox.Text = DateTime.Now.ToShortDateString();

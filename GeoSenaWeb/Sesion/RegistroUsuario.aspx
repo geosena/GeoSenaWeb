@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroUsuario.aspx.cs" Inherits="GeoSenaWeb.Sesion.RegistroUsuario" %>
 
+<%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,85 +45,98 @@
         <div class="container body-content">
             <div class="jumbotron">
                 <h2>Registro Usuario SENA</h2>
-            <div>
-                <table class="table-hover">
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Apellidos:</td>
-                        <td class="auto-style1">
-                            <asp:TextBox ID="apellidosTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
-                        </td>
-                        <td class="auto-style1"></td>
-                    </tr>
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Nombres:</td>
-                        <td>
-                            <asp:TextBox ID="nombresTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; left: 0px; top: 66px; width: 278px; height: 40px;">Identificación</td>
-                        <td>
-                            <asp:TextBox ID="identificacionTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Usuario:</td>
-                        <td>
-                            <asp:TextBox ID="usuarioTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Clave</td>
-                        <td>
-                            <asp:TextBox ID="passwordTextBox" runat="server" Height="26px" Width="450px" TextMode="Password"></asp:TextBox>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Correo:</td>
-                        <td>
-                            <asp:TextBox ID="correoTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Centro de Formación:</td>
-                        <td>
-                            <asp:DropDownList ID="centroDropDownList" runat="server" 
-                                DataSourceID="sedeSqlDataSource" DataTextField="Descripcion" 
-                                DataValueField="IdCentroFormacion" Height="26px" Width="450px">
-                            </asp:DropDownList>
-                            
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Fecha Modificación Cave:</td>
-                        <td>
-                            <asp:TextBox ID="fechaModificacionTextBox" runat="server" Height="26px" ReadOnly="True" Width="450px"></asp:TextBox>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
-                <br /><br />
-                <asp:Label ID="mensajeErrorLabel" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
-                <asp:Label ID="mensajeOKLabel" runat="server" Text="" CssClass="alert alert-success" Visible="false"></asp:Label>
-                <br /><br />
-                <asp:Button ID="registroUsuarioButton" runat="server" Text="Registrarse" CssClass="btn btn-success" OnClick="registroUsuarioButton_Click" />
-                <asp:Button ID="cancelarButton" runat="server" Text="Cancelar" CssClass="btn btn-warning" OnClick="cancelarButton_Click" />
-            </div>
+                <div>
+                    <table class="table-hover">
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Apellidos:</td>
+                            <td class="auto-style1">
+                                <asp:TextBox ID="apellidosTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
+                            </td>
+                            <td class="auto-style1"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Nombres:</td>
+                            <td>
+                                <asp:TextBox ID="nombresTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; left: 0px; top: 66px; width: 278px; height: 40px;">Identificación</td>
+                            <td>
+                                <asp:TextBox ID="identificacionTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Usuario:</td>
+                            <td>
+                                <asp:TextBox ID="usuarioTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Clave</td>
+                            <td>
+                                <asp:TextBox ID="passwordTextBox" runat="server" Height="26px" Width="450px" TextMode="Password"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Correo:</td>
+                            <td>
+                                <asp:TextBox ID="correoTextBox" runat="server" Height="26px" Width="450px"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Centro de Formación:</td>
+                            <td>
+                                <asp:DropDownList ID="centroDropDownList" runat="server"
+                                    DataSourceID="sedeSqlDataSource" DataTextField="Descripcion"
+                                    DataValueField="IdCentroFormacion" Height="26px" Width="450px">
+                                </asp:DropDownList>
+
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td></td>
+                            <td>
+                                <recaptcha:RecaptchaControl
+                                    ID="recaptcha"
+                                    runat="server"
+                                    lang="it"
+                                    TabIndex="0"
+                                    Theme="blackglass"
+                                    PublicKey="6LftHQkUAAAAAHUwAko9z-_7jR1cFbOlivjJ0w4M"
+                                    PrivateKey="6LftHQkUAAAAAIHDR-yyiYMVRBIbyC2Z5oXersjM" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right col-lg-2 control-label" style="font-size: medium; width: 278px; height: 40px;">Fecha Modificación Cave:</td>
+                            <td>
+                                <asp:TextBox ID="fechaModificacionTextBox" runat="server" Height="26px" ReadOnly="True" Width="450px"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <asp:Label ID="mensajeErrorLabel" runat="server" Text="" CssClass="alert alert-danger" Visible="false"></asp:Label>
+                    <asp:Label ID="mensajeOKLabel" runat="server" Text="" CssClass="alert alert-success" Visible="false"></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Button ID="registroUsuarioButton" runat="server" Text="Registrarse" CssClass="btn btn-success" OnClick="registroUsuarioButton_Click" />
+                    <asp:Button ID="cancelarButton" runat="server" Text="Cancelar" CssClass="btn btn-warning" OnClick="cancelarButton_Click" />
                 </div>
+            </div>
         </div>
-        <asp:SqlDataSource ID="sedeSqlDataSource" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>" 
+        <asp:SqlDataSource ID="sedeSqlDataSource" runat="server"
+            ConnectionString="<%$ ConnectionStrings:GeoSenaDBConnectionString %>"
             SelectCommand="SELECT [IdCentroFormacion], [Descripcion] FROM [CentroFormacion] 
                             UNION SELECT 0, '[Seleccione Centro de Formación]'
-                            ORDER BY 2">
-        </asp:SqlDataSource>
+                            ORDER BY 2"></asp:SqlDataSource>
     </form>
 </body>
 </html>

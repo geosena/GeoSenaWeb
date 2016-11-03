@@ -9,7 +9,7 @@
         CssClass="table table-striped table-hover" AllowPaging="True" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="IdCentroFormacion" HeaderText="Id Centro Formación" ReadOnly="True" SortExpression="IdCentroFormacion" Visible="False" />
-            <asp:BoundField DataField="Descripcion" HeaderText="Descripción" SortExpression="Descripcion" />
+            <asp:BoundField DataField="Descripcion" HeaderText="Centro de Formación" SortExpression="Descripcion" />
             <asp:TemplateField HeaderText="Url" SortExpression="Url">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Url") %>' Width="400px"></asp:TextBox>

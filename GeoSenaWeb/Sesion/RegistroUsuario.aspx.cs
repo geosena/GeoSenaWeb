@@ -161,6 +161,14 @@ namespace GeoSenaWeb.Sesion
                 return false;
             }
 
+            if (!recaptcha.IsValid)
+            {
+                mensajeErrorLabel.Visible = true;
+                mensajeErrorLabel.Text = "Recaptcha Incorrecto";
+                recaptcha.Focus();
+                return false;
+            }
+
             mensajeErrorLabel.Visible = false;
             mensajeErrorLabel.Text = string.Empty;
 

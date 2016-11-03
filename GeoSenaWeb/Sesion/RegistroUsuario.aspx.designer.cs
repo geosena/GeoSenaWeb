@@ -85,6 +85,15 @@ namespace GeoSenaWeb.Sesion {
         protected global::System.Web.UI.WebControls.DropDownList centroDropDownList;
         
         /// <summary>
+        /// Control recaptcha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Recaptcha.RecaptchaControl recaptcha;
+        
+        /// <summary>
         /// Control fechaModificacionTextBox.
         /// </summary>
         /// <remarks>
