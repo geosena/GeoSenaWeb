@@ -281,8 +281,8 @@
     <Content Include="DataSetGeoSena.xss">
       <DependentUpon>DataSetGeoSena.xsd</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\GeoSena - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\GeoSenaParq.pubxml" />
+    <None Include="Properties\PublishProfiles\geosenaparq - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\geosenaparq - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\GeoSenaParqDB.sql" />
     <Content Include="Scripts\GetMapa.js" />

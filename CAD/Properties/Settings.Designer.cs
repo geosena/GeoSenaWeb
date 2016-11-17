@@ -26,7 +26,9 @@ namespace CAD.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=GeoSenaDB;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=geosena.database.windows.net,1433;Initial Catalog=GeoSenaDB;Persist S" +
+            "ecurity Info=False;User ID=administrador;Password=Admin123;MultipleActiveResultS" +
+            "ets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")]
         public string GeoSenaDBConnectionString {
             get {
                 return ((string)(this["GeoSenaDBConnectionString"]));
