@@ -21,14 +21,14 @@ namespace GeoSenaWeb.Tests
             {
                 //Act prueba
                 var resultado = CAD.CADAdministrador.ExisteAdministrador(identificacion, password);
-
+                
                 //Assert afirmacion
-                Assert.AreEqual(resultado, true, "Se esperaba 'Verdadero'");
+                Assert.AreEqual(resultado, true, "Se esperaba 'Verdadero");
             }
         }
 
         [TestMethod]
-        public void ProbarExisteAdminByIdentificacion()
+        public void ProbarExsteAdministradorByIdAdministrador()
         {
             //Arrange
             int IdAdministrador = 1;
@@ -59,11 +59,27 @@ namespace GeoSenaWeb.Tests
             if (nombres == string.Empty || apellidos == string.Empty || correo == string.Empty
                 || identificacion == string.Empty || clave == string.Empty)
             {
-                Assert.Fail("No es posible insertar");
+                Assert.Fail("No es posible insertar.Los parametros no deben ser vacios");
             }
             else
             {
                 CAD.CADAdministrador.InsertAdministrador(nombres, apellidos, correo, identificacion, clave);
+            }
+        }
+
+        [TestMethod]
+        public void ProbarCambioClaveAdministrador()
+        {
+            int IdAdministrador = 1;
+            string clave = "admin123";
+
+            if (IdAdministrador <= 0 || clave == string.Empty)
+            {
+                Assert.Fail("No es posible cambiar la clave.Los parametros no deben ser invalidos");
+            }
+            else
+            {
+                CAD.CADAdministrador.CambioClaveAdmin(clave, IdAdministrador);
             }
         }
     }

@@ -33,6 +33,17 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="GeoSenaDBConnectionString-Implementación" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=tcp:geosenaparq.database.windows.net,1433%3bInitial Catalog=GeoSenaDB%3bPersist Security Info=False%3bUser ID=Administrador%3bPassword=Admin123%3bConnect Timeout=30%3bEncrypt=True%3bTrustServerCertificate=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\GeoSenaDBConnectionString-Implementación_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -271,6 +282,7 @@
       <DependentUpon>DataSetGeoSena.xsd</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\GeoSena - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\GeoSenaParq.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\GeoSenaParqDB.sql" />
     <Content Include="Scripts\GetMapa.js" />
@@ -639,6 +651,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

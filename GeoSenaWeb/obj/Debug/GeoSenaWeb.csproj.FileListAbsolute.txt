@@ -85,8 +85,6 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Google.Api.Maps.Service.xml
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.pdb
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.xml
-C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GMaps.dll
-C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Recaptcha.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportSource.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.Shared.dll

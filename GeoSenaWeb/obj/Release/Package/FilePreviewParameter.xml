@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="GeoSena" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="geosena" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Widres88\\Source\\Repos\\GeoSenaWeb\\GeoSenaWeb\\obj\\Release\\Package\\PackageTmp$" />
     <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Widres88\\Source\\Repos\\GeoSenaWeb\\GeoSenaWeb\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=.;Initial Catalog=GeoSenaDB;Integrated Security=True" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Widres88\\Source\\Repos\\GeoSenaWeb\\GeoSenaWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-  <parameter name="GeoSenaDBConnectionString-Web.config Connection String" description="" value="Data Source=.;Initial Catalog=GeoSenaDB;Integrated Security=True" tags="">
+  <parameter name="GeoSenaDBConnectionString-Web.config Connection String" description="" value="Data Source=tcp:geosenaparq.database.windows.net,1433;Initial Catalog=GeoSenaDB;Persist Security Info=False;User ID=Administrador;Password=Admin123;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Widres88\\Source\\Repos\\GeoSenaWeb\\GeoSenaWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GeoSenaDBConnectionString']/@connectionString" />
   </parameter>
 </parameters>

@@ -19,7 +19,6 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\AspNet.ScriptManager.jQ
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CAD.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\EntityFramework.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\EntityFramework.SqlServer.dll
-C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GMaps.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Google.Api.Maps.Service.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\GoogleApi.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Microsoft.AspNet.FriendlyUrls.dll
@@ -42,7 +41,6 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Microsoft.ScriptManager
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Newtonsoft.Json.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Owin.dll
-C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\Recaptcha.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\System.Web.Optimization.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\System.Web.Providers.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\WebGrease.dll
@@ -87,3 +85,20 @@ C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\es\Microsoft.Owin.Secur
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Release\GeoSenaWeb.csprojResolveAssemblyReference.cache
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Release\GeoSenaWeb.dll
 C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Release\GeoSenaWeb.pdb
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.Shared.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.Web.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Widres88\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\stdole.dll
