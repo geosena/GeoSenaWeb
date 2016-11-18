@@ -267,7 +267,9 @@
     <Content Include="Informes\ListadoParqueaderos.aspx" />
     <Content Include="Informes\ListadoSedes.aspx" />
     <Content Include="Informes\ListadoUsuarios.aspx" />
+    <Content Include="Informes\UsoAplicacion.aspx" />
     <Content Include="Perfil\Perfil.aspx" />
+    <Content Include="Scripts\bootboard.0.2.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="DataSetGeoSena.xsc">
@@ -572,6 +574,13 @@
     </Compile>
     <Compile Include="Informes\ListadoUsuarios.aspx.designer.cs">
       <DependentUpon>ListadoUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\UsoAplicacion.aspx.cs">
+      <DependentUpon>UsoAplicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\UsoAplicacion.aspx.designer.cs">
+      <DependentUpon>UsoAplicacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ParqueaderoFull.cs" />

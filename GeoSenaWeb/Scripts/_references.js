@@ -1,4 +1,5 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="bootboard.0.2.min.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="getmapa.js" />
 /// <reference path="jquery-3.1.1.js" />

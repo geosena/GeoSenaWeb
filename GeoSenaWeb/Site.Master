@@ -108,7 +108,7 @@
                                     <asp:LinkButton ID="LinkButton10" runat="server" PostBackUrl="~/Informes/ListadoUsuarios.aspx">Apredendices Sena por Centro</asp:LinkButton>
                                 </li>
                                 <li>
-                                    <asp:LinkButton ID="LinkButton13" runat="server" PostBackUrl="~/">Uso Aplicación</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton13" runat="server" PostBackUrl="~/Informes/UsoAplicacion.aspx">Uso Aplicación</asp:LinkButton>
                                 </li>
                                 <li class="divider"></li>
                             </ul>
