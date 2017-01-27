@@ -225,6 +225,9 @@ namespace GeoSenaWeb
 
                 CADAdministrador.CambioClaveAdmin(claveTextBox.Text, idAdministrador);
 
+                Session["DatosUsuarioAdministrador"] = 
+                    CADAdministrador.GetDataByIdAdministrador(idAdministrador);
+
             }
             else if (Session["rol"].Equals("Aprendiz Sena"))
             {
@@ -260,9 +263,11 @@ namespace GeoSenaWeb
                 int idUsuario = Convert.ToInt32(miUser.Rows[0].ItemArray[0].ToString());
 
                 CADUsuario.CambioClave(claveTextBox.Text,fecha, idUsuario);
+
+                Session["DatosUsuarioUser"] = CADUsuario.GetDataByIdentificacion(Convert.ToInt32(miUser.Rows[0].ItemArray[3].ToString()));
             }
 
-            Response.Redirect("Default.aspx", true);
+            Response.Redirect(Request.RawUrl);
         }
     }
 
