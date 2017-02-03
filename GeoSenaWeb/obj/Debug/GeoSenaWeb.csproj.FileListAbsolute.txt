@@ -202,3 +202,7 @@ C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\es\Microsoft.Owin.Securit
 C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Debug\GeoSenaWeb.csprojResolveAssemblyReference.cache
 C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Debug\GeoSenaWeb.dll
 C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\obj\Debug\GeoSenaWeb.pdb
+C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.ReportSource.dll
+C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.Shared.dll
+C:\Users\WIDRES\Source\Repos\GeoSenaWeb\GeoSenaWeb\bin\CrystalDecisions.Web.dll

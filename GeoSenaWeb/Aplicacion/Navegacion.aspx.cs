@@ -72,7 +72,8 @@ namespace GeoSenaWeb.Aplicacion
                         info =
                             new GInfoWindow(marcador, "<b>" + miSede.Rows[i].ItemArray[1] +
                             "</b><br /><b>Direccion: </b>" + miSede.Rows[i].ItemArray[5] +
-                            "<br /><b>Horario: </b>" + miSede.Rows[i].ItemArray[8], false);
+                            "<br /><b>Horario: </b>" + miSede.Rows[i].ItemArray[8] +
+                            "<br /><b>Telefono: </b>" + miSede.Rows[i].ItemArray[10], false);
 
                         GMap1.enableHookMouseWheelToZoom = true;
 
