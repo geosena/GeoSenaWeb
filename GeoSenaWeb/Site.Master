@@ -148,7 +148,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - GeoSena</p>
+                <p>&copy; <%: DateTime.Now.Year.ToString() %> - GeoSena</p>
             </footer>
         </div>
 
